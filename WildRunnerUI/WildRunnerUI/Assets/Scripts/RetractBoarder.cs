@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RetractBoarder : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
+
+    Text Subtitle;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,8 @@ public class RetractBoarder : MonoBehaviour
         sAnim = GameObject.Find("SettingButton").GetComponent<Animator>();
         cAnim = GameObject.Find("CreditsButton").GetComponent<Animator>();
         qAnim = GameObject.Find("QuitButton").GetComponent<Animator>();
+
+        Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
     }
 
     public void OnButtonDown()
@@ -41,5 +46,7 @@ public class RetractBoarder : MonoBehaviour
 
         qAnim.enabled = true;
         qAnim.SetTrigger("Selected");
+
+        Subtitle.text = "[NULL]";
     }
 }

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreditsOnClick : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
+
+    Text Subtitle;
     private void Start()
     {
         anim = GameObject.FindWithTag("Canvas").GetComponent<Animator>();
@@ -14,6 +17,8 @@ public class CreditsOnClick : MonoBehaviour
         sAnim = GameObject.Find("SettingButton").GetComponent<Animator>();
         cAnim = GameObject.Find("CreditsButton").GetComponent<Animator>();
         qAnim = GameObject.Find("QuitButton").GetComponent<Animator>();
+
+        Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
     }
     public void OnButtonDown()
     {
@@ -25,5 +30,7 @@ public class CreditsOnClick : MonoBehaviour
         cAnim.enabled = false;
         qAnim.enabled = false;
         Debug.Log("Animators Killed");
+
+        Subtitle.text = "Credits";
     }
 }

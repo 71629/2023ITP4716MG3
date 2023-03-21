@@ -8,6 +8,9 @@ public class SettingsOnClick : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
+
+    Text Subtitle;
+
     private void Start()
     {
         anim = GameObject.FindWithTag("Canvas").GetComponent<Animator>();
@@ -16,7 +19,10 @@ public class SettingsOnClick : MonoBehaviour
         sAnim = GameObject.Find("SettingButton").GetComponent<Animator>();
         cAnim = GameObject.Find("CreditsButton").GetComponent<Animator>();
         qAnim = GameObject.Find("QuitButton").GetComponent<Animator>();
+
+        Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
     }
+
     public void OnButtonDown()
     {
         Debug.Log("Settings Button Clicked");
@@ -27,5 +33,7 @@ public class SettingsOnClick : MonoBehaviour
         cAnim.enabled = false;
         qAnim.enabled = false;
         Debug.Log("Animators Killed");
+
+        Subtitle.text = "Settings";
     }
 }
