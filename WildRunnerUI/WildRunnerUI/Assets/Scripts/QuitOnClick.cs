@@ -11,6 +11,8 @@ public class QuitOnClick : MonoBehaviour
     public void OnButtonDown()
     {
         Debug.Log("Quit Button Clicked");
-        Instantiate(original, GameObject.Find("Canvas").GetComponent<Transform>());
+        GameObject dialog = Instantiate(original, GameObject.Find("Canvas").GetComponent<Transform>()) as GameObject;
+        dialog.AddComponent<QuitDialog>();
+        //dialog.AddComponent<Dialog>();
     }
 }

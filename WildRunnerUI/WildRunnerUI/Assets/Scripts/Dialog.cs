@@ -7,22 +7,29 @@ public class Dialog : MonoBehaviour
 {
     Animator anim;
 
-    [SerializeField] string _title; //Title text
-    [SerializeField] string _description; //Description text
-    [SerializeField] string _button1; //Left button text, usually for a POSITIVE response
-    [SerializeField] string _button2; //Right button text, usually for a NEGATIVE response
-    [SerializeField] bool _isCritical; //Makes Button1 red
+    [SerializeField] protected string _title; //Title text
+    [SerializeField] protected string _description; //Description text
+    [SerializeField] protected string _button1; //Left button text, usually for a POSITIVE response
+    [SerializeField] protected string _button2; //Right button text, usually for a NEGATIVE response
+    [SerializeField] protected bool _isCritical; //Makes Button1 red
 
-    Text Title, Description, Button1, Button2;
+    [SerializeField]
+    private Text Title, Description, ButtonText1, ButtonText2;
+
+    [SerializeField]
+    protected Button Button1, Button2;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Reference to GameObjects
+        ////Reference to GameObjects
         Title = GameObject.Find("Title").GetComponent<Text>();
         Description = GameObject.Find("Description").GetComponent<Text>();
-        Button1 = GameObject.Find("Button1").GetComponentInChildren<Text>();
-        Button2 = GameObject.Find("Button2").GetComponentInChildren<Text>();
+        ButtonText1 = GameObject.Find("Button1").GetComponentInChildren<Text>();
+        ButtonText2 = GameObject.Find("Button2").GetComponentInChildren<Text>();
+
+        Button1 = GameObject.Find("Button1").GetComponent<Button>();
+        Button2 = GameObject.Find("Button2").GetComponent<Button>();
 
         anim = this.GetComponent<Animator>();
 
@@ -32,14 +39,16 @@ public class Dialog : MonoBehaviour
         if (_button1 == "") { _button1 = "Button 1"; }
         if (_button2 == "") { _button2 = "Button 2"; }
 
+        InitDialog();
+
         //Apply texts
         Title.text = _title;
         Description.text = _description;
-        Button1.text = _button1;
-        Button2.text = _button2;
+        ButtonText1.text = _button1;
+        ButtonText2.text = _button2;
 
         //Apply colors
-        if (_isCritical) { Button1.color = new Color(1, 0.15f, 0.15f, 1); }
+        if (_isCritical) { ButtonText1.color = new Color(1, 0.15f, 0.15f, 1); }
     }
 
     public void OnButton1Down()
@@ -66,5 +75,18 @@ public class Dialog : MonoBehaviour
     public void DialogEnd()
     {
         GameObject.Destroy(this.gameObject);
+    }
+
+    public virtual void InitDialog()
+    {
+        _title = "Runner";
+        //_description = "";
+        //_button1 = "yes";
+        //_button2 = "no";
+
+        //_isCritical = true;
+
+        //Button1.onClick.AddListener(()=>Debug.Log("Yes"));
+        //Button2.onClick.AddListener(() => Debug.Log("No"));
     }
 }
