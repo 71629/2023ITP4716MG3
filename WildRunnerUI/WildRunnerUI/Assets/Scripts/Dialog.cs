@@ -7,11 +7,11 @@ public class Dialog : MonoBehaviour
 {
     Animator anim;
 
-    [SerializeField] protected string _title; //Title text
-    [SerializeField] protected string _description; //Description text
-    [SerializeField] protected string _button1; //Left button text, usually for a POSITIVE response
-    [SerializeField] protected string _button2; //Right button text, usually for a NEGATIVE response
-    [SerializeField] protected bool _isCritical; //Makes Button1 red
+    protected string _title; //Title text
+    protected string _description; //Description text
+    protected string _button1; //Left button text, usually for a POSITIVE response
+    protected string _button2; //Right button text, usually for a NEGATIVE response
+    protected bool _isCritical; //Makes Button1 red
 
     [SerializeField]
     private Text Title, Description, ButtonText1, ButtonText2;
@@ -33,12 +33,6 @@ public class Dialog : MonoBehaviour
 
         anim = this.GetComponent<Animator>();
 
-        //Replace empty text fields
-        if (_title == "") { _title = "Title"; }
-        if (_description == "") { _description = "Description"; }
-        if (_button1 == "") { _button1 = "Button 1"; }
-        if (_button2 == "") { _button2 = "Button 2"; }
-
         InitDialog();
 
         //Apply texts
@@ -47,46 +41,42 @@ public class Dialog : MonoBehaviour
         ButtonText1.text = _button1;
         ButtonText2.text = _button2;
 
-        //Apply colors
+        //Apply color
         if (_isCritical) { ButtonText1.color = new Color(1, 0.15f, 0.15f, 1); }
     }
 
-    public void OnButton1Down()
+    //Force abort from frozen Dialog
+    private void Update() { if (Input.GetKey(KeyCode.Escape)) { Close("Abort Dialog"); } }
+
+    //Quit
+    protected void Close() { anim.SetTrigger("Quit"); }
+
+    //Debug
+    protected void Close(int KeyNum)
     {
-        //Initial Action
+        Debug.Log("Button " + KeyNum + " in the dialog is pressed.");
         Close();
-
-        //Follow-up Actions
     }
 
-    public void OnButton2Down()
+    //Debug
+    protected void Close(string ErrorMessage)
     {
-        //Initial Action
+        Debug.LogError(ErrorMessage);
         Close();
-
-        //Follow-up Actions
     }
 
-    void Close()
+    public void DialogEnd() { GameObject.Destroy(this.gameObject); } //Called by Animator
+
+    protected virtual void InitDialog()
     {
-        anim.SetTrigger("Quit");
+        _title = "Title";
+        _description = "No description.";
+        _button1 = "Button 1";
+        _button2 = "Button 2";
+
+        _isCritical = false;
     }
 
-    public void DialogEnd()
-    {
-        GameObject.Destroy(this.gameObject);
-    }
-
-    public virtual void InitDialog()
-    {
-        _title = "Runner";
-        //_description = "";
-        //_button1 = "yes";
-        //_button2 = "no";
-
-        //_isCritical = true;
-
-        //Button1.onClick.AddListener(()=>Debug.Log("Yes"));
-        //Button2.onClick.AddListener(() => Debug.Log("No"));
-    }
+    public virtual void OnButton1Down(){ Debug.LogWarning("No function found."); }
+    public virtual void OnButton2Down(){ Debug.LogWarning("No function found."); }
 }

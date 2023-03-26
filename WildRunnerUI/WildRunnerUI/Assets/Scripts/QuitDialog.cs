@@ -5,21 +5,28 @@ using UnityEngine.UI;
 
 public class QuitDialog : Dialog
 {
-    public override void InitDialog()
+    //Override parent functions
+    protected override void InitDialog()
     {
-        _title = "Steve Job";
-        _description = "";
-        _button1 = "yes";
-        _button2 = "no";
+        _title = "Quit WildRunner";
+        _description = "Are you sure you want to quit WildRunner?";
+        _button1 = "Confirm";
+        _button2 = "Cancel";
 
         _isCritical = true;
-
-        Button1.onClick.AddListener(delegate { DebugYes(); });
-        Button2.onClick.AddListener(delegate { DebugYes(); });
     }
 
-    void DebugYes()
+    public override void OnButton1Down()
     {
-        Debug.Log("Yes");
+        Debug.LogWarning("Quitting Game");
+        Close(1);
     }
+
+    public override void OnButton2Down()
+    {
+        Debug.Log("Cancel quit");
+        Close(2);
+    }
+
+    //Additional features below
 }
