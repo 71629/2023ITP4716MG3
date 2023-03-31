@@ -19,8 +19,7 @@ public class Dialog : MonoBehaviour
     [SerializeField]
     protected Button Button1, Button2;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         ////Reference to GameObjects
         Title = GameObject.Find("Title").GetComponent<Text>();
@@ -32,7 +31,10 @@ public class Dialog : MonoBehaviour
         Button2 = GameObject.Find("Button2").GetComponent<Button>();
 
         anim = this.GetComponent<Animator>();
-
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
         InitDialog();
 
         //Apply texts
@@ -43,6 +45,9 @@ public class Dialog : MonoBehaviour
 
         //Apply color
         if (_isCritical) { ButtonText1.color = new Color(1, 0.15f, 0.15f, 1); }
+
+        Button1.onClick.AddListener(() => OnButton1Down());
+        Button2.onClick.AddListener(() => OnButton2Down());
     }
 
     //Force abort from frozen Dialog
