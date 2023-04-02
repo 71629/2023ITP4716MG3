@@ -51,7 +51,12 @@ public class Dialog : MonoBehaviour
     }
 
     //Force abort from frozen Dialog
-    private void Update() { if (Input.GetKey(KeyCode.Escape)) { Close("Abort Dialog"); } }
+    private void Update()
+    { 
+        if (Input.GetKeyDown(KeyCode.Escape)) { Close("Abort Dialog"); } 
+        if (Input.GetKeyDown((KeyCode)332)) { OnButton1Down(); }
+        if (Input.GetKeyDown((KeyCode)331)) { OnButton2Down(); }
+    }
 
     //Quit
     protected void Close() { anim.SetTrigger("Quit"); }

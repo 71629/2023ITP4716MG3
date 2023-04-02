@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SettingsOnClick : MonoBehaviour
 {
+    [SerializeField] Button[] settings;
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
 
@@ -35,5 +36,7 @@ public class SettingsOnClick : MonoBehaviour
         Debug.Log("Animators Killed");
 
         Subtitle.text = "Settings";
+
+        for (int i = 0; i < settings.Length; i++) { settings[i].enabled = true; }
     }
 }
