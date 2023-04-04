@@ -23,6 +23,17 @@ public class RetractBoarder : MonoBehaviour
         Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown((KeyCode)331))
+        {
+            Debug.Log("Menu.Back Button Clicked");
+            anim.SetBool("IsExpanded", false);
+
+            StartCoroutine(Reanimate(0.3333f));
+        }
+    }
+
     public void OnButtonDown()
     {
         Debug.Log("Menu.Back Button Clicked");

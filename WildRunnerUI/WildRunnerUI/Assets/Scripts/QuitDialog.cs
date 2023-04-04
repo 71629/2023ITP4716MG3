@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class QuitDialog : Dialog
 {
@@ -32,7 +33,7 @@ public class QuitDialog : Dialog
         Debug.Log("Cancel quit");
         Close(2);
         GameObject.Find("QuitButton").GetComponent<Button>().interactable = true;
-        GameObject.Find("QuitButton").GetComponent<Animator>().SetTrigger("Highlighted");
+        GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(GameObject.Find("QuitButton"));
     }
 
     //Additional features below

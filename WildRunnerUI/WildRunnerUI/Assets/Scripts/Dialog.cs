@@ -87,6 +87,6 @@ public class Dialog : MonoBehaviour
         _isCritical = false;
     }
 
-    public virtual void OnButton1Down(){ Debug.LogWarning("No function found."); }
-    public virtual void OnButton2Down(){ Debug.LogWarning("No function found."); }
+    public virtual void OnButton1Down(){}
+    public virtual void OnButton2Down(){}
 }
