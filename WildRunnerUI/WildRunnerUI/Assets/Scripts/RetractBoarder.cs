@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class RetractBoarder : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
+    [SerializeField] GameObject SelectOnRetract;
+    [SerializeField] GameObject SettingsItems;
 
     Text Subtitle;
 
@@ -29,6 +32,7 @@ public class RetractBoarder : MonoBehaviour
         {
             Debug.Log("Menu.Back Button Clicked");
             anim.SetBool("IsExpanded", false);
+            EventSystem.current.SetSelectedGameObject(null);
 
             StartCoroutine(Reanimate(0.3333f));
         }
@@ -38,6 +42,7 @@ public class RetractBoarder : MonoBehaviour
     {
         Debug.Log("Menu.Back Button Clicked");
         anim.SetBool("IsExpanded", false);
+
 
         StartCoroutine(Reanimate(0.3333f));
     }
@@ -59,5 +64,8 @@ public class RetractBoarder : MonoBehaviour
         qAnim.SetTrigger("Selected");
 
         Subtitle.text = "[NULL]";
+
+        SettingsItems.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(SelectOnRetract);
     }
 }

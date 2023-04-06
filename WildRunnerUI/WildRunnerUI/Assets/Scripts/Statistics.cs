@@ -8,11 +8,16 @@ public class Statistics : MonoBehaviour
     void Awake()
     {
         //Basic Player Statistics check
-        if (!PlayerPrefs.HasKey("TotalScore")) { PlayerPrefs.SetInt("TotalScore", 0); } else { PlayerPrefs.GetInt("TotalScore"); }
-        if (!PlayerPrefs.HasKey("Progress")) { PlayerPrefs.SetString("Progress", "Not Played"); } else { PlayerPrefs.GetString("Progress"); }
-        if (!PlayerPrefs.HasKey("Name")) { PlayerPrefs.SetString("Name", "WildRunner"); } else { PlayerPrefs.GetString("Name"); }
+        if (!PlayerPrefs.HasKey("TotalScore")) { PlayerPrefs.SetInt("TotalScore", 0); }
+        if (!PlayerPrefs.HasKey("Progress")) { PlayerPrefs.SetString("Progress", "Not Played"); }
+        if (!PlayerPrefs.HasKey("Name")) { PlayerPrefs.SetString("Name", "WildRunner"); }
 
         //Settings Parameters check
-        if (!PlayerPrefs.HasKey("ControlDevice")) { PlayerPrefs.SetInt("ControlDevice", 0); } else { PlayerPrefs.GetString("ControlDevice"); }
+        if (!PlayerPrefs.HasKey("ControlDevice")) { PlayerPrefs.SetInt("ControlDevice", 0); }
+        if (!PlayerPrefs.HasKey("MasterVolume")) { PlayerPrefs.SetFloat("MasterVolume", 1); }
+        if (!PlayerPrefs.HasKey("MusicVolume")) { PlayerPrefs.SetFloat("MusicVolume", 1); }
+        if (!PlayerPrefs.HasKey("VoiceVolume")) { PlayerPrefs.SetFloat("VoiceVolume", 1); }
+        if (!PlayerPrefs.HasKey("SFXVolume")) { PlayerPrefs.SetFloat("SFXVolume", 1); }
+        if (!PlayerPrefs.HasKey("DefaultDifficulty")) { PlayerPrefs.SetInt("DefaultDifficulty", 0); }
     }
 }
