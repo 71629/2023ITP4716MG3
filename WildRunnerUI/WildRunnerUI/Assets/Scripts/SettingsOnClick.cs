@@ -7,13 +7,12 @@ using UnityEngine.EventSystems;
 
 public class SettingsOnClick : MonoBehaviour
 {
-    [SerializeField] Button[] settings;
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
-    [SerializeField] Button Select;
-    [SerializeField] GameObject SettingsItems;
 
     Text Subtitle;
+
+    [SerializeField] GameObject Settings;
 
     private void Start()
     {
@@ -31,7 +30,6 @@ public class SettingsOnClick : MonoBehaviour
     {
         Debug.Log("Settings Button Clicked");
         anim.SetBool("IsExpanded", true);
-        SettingsItems.SetActive(true);
 
         pAnim.enabled = false;
         sAnim.enabled = false;
@@ -41,8 +39,6 @@ public class SettingsOnClick : MonoBehaviour
 
         Subtitle.text = "Settings";
 
-        for (int i = 0; i < settings.Length; i++) { settings[i].enabled = true; }
-
-        Select.Select();
+        Settings.SetActive(true);
     }
 }

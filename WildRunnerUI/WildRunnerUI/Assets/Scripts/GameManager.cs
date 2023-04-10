@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -88,8 +89,8 @@ public class GameManager : MonoBehaviour
     { 
         PlayerPrefs.SetFloat("MasterVolume", MasterVolume.value);
         MasterVolume.value = PlayerPrefs.GetFloat("MasterVolume");
-        ValueDisplay[0].text = (PlayerPrefs.GetFloat("MasterVolume") * 100).ToString("0") + "%";
-        if(PlayerPrefs.GetFloat("MasterVolume") == 0) 
+        ValueDisplay[0].text = (PlayerPrefs.GetFloat("MasterVolume")).ToString("0%");
+        if (PlayerPrefs.GetFloat("MasterVolume") == 0) 
         { 
             ValueDisplay[0].color = new Color(0.5f, 0.2f, 0.2f);
             ValueDisplay[0].text = "MUTE";
@@ -108,7 +109,7 @@ public class GameManager : MonoBehaviour
     { 
         PlayerPrefs.SetFloat("MusicVolume", MusicVolume.value);
         MusicVolume.value = PlayerPrefs.GetFloat("MusicVolume");
-        ValueDisplay[1].text = (PlayerPrefs.GetFloat("MusicVolume") * PlayerPrefs.GetFloat("MasterVolume") * 100).ToString("0") + "%";
+        ValueDisplay[1].text = (PlayerPrefs.GetFloat("MusicVolume") * PlayerPrefs.GetFloat("MasterVolume")).ToString("0%");
         if (PlayerPrefs.GetFloat("MusicVolume") * PlayerPrefs.GetFloat("MasterVolume") == 0)
         {
             ValueDisplay[1].color = new Color(0.5f, 0.2f, 0.2f);
@@ -128,7 +129,7 @@ public class GameManager : MonoBehaviour
     { 
         PlayerPrefs.SetFloat("VoiceVolume", VoiceVolume.value);
         VoiceVolume.value = PlayerPrefs.GetFloat("VoiceVolume");
-        ValueDisplay[2].text = (PlayerPrefs.GetFloat("VoiceVolume") * PlayerPrefs.GetFloat("MasterVolume") * 100).ToString("0") + "%";
+        ValueDisplay[2].text = (PlayerPrefs.GetFloat("VoiceVolume") * PlayerPrefs.GetFloat("MasterVolume")).ToString("0%");
         if (PlayerPrefs.GetFloat("VoiceVolume") * PlayerPrefs.GetFloat("MasterVolume") == 0)
         {
             ValueDisplay[2].color = new Color(0.5f, 0.2f, 0.2f);
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour
     { 
         PlayerPrefs.SetFloat("SFXVolume", SFXVolume.value);
         SFXVolume.value = PlayerPrefs.GetFloat("SFXVolume");
-        ValueDisplay[3].text = (PlayerPrefs.GetFloat("SFXVolume") * PlayerPrefs.GetFloat("MasterVolume") * 100).ToString("0") + "%";
+        ValueDisplay[3].text = (PlayerPrefs.GetFloat("SFXVolume") * PlayerPrefs.GetFloat("MasterVolume")).ToString("0%");
         if (PlayerPrefs.GetFloat("SFXVolume") * PlayerPrefs.GetFloat("MasterVolume") == 0)
         {
             ValueDisplay[3].color = new Color(0.5f, 0.2f, 0.2f);
@@ -216,5 +217,12 @@ public class GameManager : MonoBehaviour
     public static void QuitGame(string errorMessage) //Throw Error
     {
         throw new System.Exception(errorMessage);
+    }
+
+    public static void EraseAllData(bool enable)
+    {
+        if (enable) { PlayerPrefs.DeleteAll(); }
+        else { Debug.LogWarning("Operation Blocked: GameManager.EraseAllData()"); }
+        SceneManager.LoadScene("Disclaimer");
     }
 }
