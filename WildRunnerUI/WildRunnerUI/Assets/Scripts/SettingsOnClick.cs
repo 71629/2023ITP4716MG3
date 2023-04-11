@@ -9,6 +9,7 @@ public class SettingsOnClick : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
+    [SerializeField] Animator SettingsMenu;
 
     Text Subtitle;
 
@@ -40,5 +41,6 @@ public class SettingsOnClick : MonoBehaviour
         Subtitle.text = "Settings";
 
         Settings.SetActive(true);
+        SettingsMenu.SetBool("isOpened", true);
     }
 }

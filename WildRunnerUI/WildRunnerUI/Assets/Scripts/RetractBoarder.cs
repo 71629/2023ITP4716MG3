@@ -10,6 +10,7 @@ public class RetractBoarder : MonoBehaviour
     Animator pAnim, sAnim, cAnim, qAnim;
     [SerializeField] GameObject SelectOnRetract;
     [SerializeField] GameObject SettingsItems;
+    [SerializeField] Animator SettingsMenu;
 
     Text Subtitle;
 
@@ -42,6 +43,7 @@ public class RetractBoarder : MonoBehaviour
     {
         Debug.Log("Menu.Back Button Clicked");
         anim.SetBool("IsExpanded", false);
+        SettingsMenu.SetBool("isOpened", false);
 
 
         StartCoroutine(Reanimate(0.3333f));
