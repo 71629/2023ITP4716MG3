@@ -26,7 +26,7 @@ public class ResetProgress : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
     {
         if ( isPressed )
         {
-            slider.GetComponent<Slider>().value += 0.5f * Time.deltaTime;
+            slider.GetComponent<Slider>().value += 0.01f * Time.deltaTime;
         }
     }
 

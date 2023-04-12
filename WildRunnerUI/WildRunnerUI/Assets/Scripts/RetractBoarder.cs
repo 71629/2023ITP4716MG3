@@ -11,6 +11,7 @@ public class RetractBoarder : MonoBehaviour
     [SerializeField] GameObject SelectOnRetract;
     [SerializeField] GameObject SettingsItems;
     [SerializeField] Animator SettingsMenu;
+    [SerializeField] GameObject[] IgnoreBack;
 
     Text Subtitle;
 
@@ -27,8 +28,12 @@ public class RetractBoarder : MonoBehaviour
         Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
+        for(int i = 0; i < IgnoreBack.Length; i++)
+        {
+            if(EventSystem.current.currentSelectedGameObject == IgnoreBack[i]) { return; }
+        }
         if (Input.GetKeyDown((KeyCode)331))
         {
             Debug.Log("Menu.Back Button Clicked");
@@ -68,6 +73,7 @@ public class RetractBoarder : MonoBehaviour
         Subtitle.text = "[NULL]";
 
         SettingsItems.SetActive(false);
+        SettingsMenu.SetBool("isOpened", false);
         EventSystem.current.SetSelectedGameObject(SelectOnRetract);
     }
 }

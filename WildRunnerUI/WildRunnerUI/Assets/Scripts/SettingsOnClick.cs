@@ -14,6 +14,7 @@ public class SettingsOnClick : MonoBehaviour
     Text Subtitle;
 
     [SerializeField] GameObject Settings;
+    [SerializeField] GameObject FirstCategory;
 
     private void Start()
     {
@@ -42,5 +43,6 @@ public class SettingsOnClick : MonoBehaviour
 
         Settings.SetActive(true);
         SettingsMenu.SetBool("isOpened", true);
+        EventSystem.current.SetSelectedGameObject(FirstCategory);
     }
 }

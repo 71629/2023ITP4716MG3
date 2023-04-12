@@ -9,6 +9,7 @@ public class SettingsMenu : MonoBehaviour
     //Stores a numbers of GameObjects of MenuItem and individual items in the category
     [SerializeField] GameObject[] MenuItem;
     [SerializeField] GameObject[] CategoryItem;
+    [SerializeField] GameObject[] FirstItemInCategory; //Corresponding Indicator or MenuItem
 
     //Stores a single GameObject recently selected
     GameObject LastSelectedCategory; 
@@ -45,12 +46,17 @@ public class SettingsMenu : MonoBehaviour
                 LastSelectedCategory = MenuItem[i];
                 MenuItem[i].GetComponentInChildren<Text>().color = new Color(1, 1, 1);
                 CategoryItem[i].SetActive(true);
+                ActiveCategory = i;
             }
             else
             {
                 MenuItem[i].GetComponentInChildren<Text>().color = new Color(0.6f, 0.6f, 0.6f);
                 CategoryItem[i].SetActive(false);
             }
+        }
+        if (Input.GetKeyDown((KeyCode)332))
+        {
+            EventSystem.current.SetSelectedGameObject(FirstItemInCategory[ActiveCategory]);
         }
     }
 }
