@@ -28,6 +28,10 @@ public class ControllerInput : MonoBehaviour
                 Debug.Log((KeyCode)i);
             }
         }
+        if (Input.GetAxis("XRI_DPad_Horizontal") >= 0.5f) { Debug.Log("R-DPad Pressed"); }
+        if (Input.GetAxis("XRI_DPad_Horizontal") <= -0.5f) { Debug.Log("L-DPad Pressed"); }
+        if (Input.GetAxis("XRI_DPad_Vertical") >= 0.5f) { Debug.Log("U-DPad Pressed"); }
+        if (Input.GetAxis("XRI_DPad_Vertical") <= -0.5f) { Debug.Log("D-DPad Pressed"); }
     }
 
     void DisconnectDialog()

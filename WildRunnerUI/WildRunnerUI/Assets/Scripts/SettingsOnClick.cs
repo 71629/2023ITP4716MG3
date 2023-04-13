@@ -26,6 +26,8 @@ public class SettingsOnClick : MonoBehaviour
         qAnim = GameObject.Find("QuitButton").GetComponent<Animator>();
 
         Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
+
+        Debug.Log("Target Item: " + FirstCategory.ToString());
     }
 
     public void OnButtonDown()

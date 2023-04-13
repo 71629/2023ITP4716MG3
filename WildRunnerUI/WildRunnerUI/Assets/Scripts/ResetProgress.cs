@@ -20,13 +20,24 @@ public class ResetProgress : MonoBehaviour, IUpdateSelectedHandler, IPointerDown
             GameObject dialog = Instantiate(original, GameObject.Find("Canvas").GetComponent<Transform>()) as GameObject;
             dialog.AddComponent<ConfirmResetDataDialog>();
         }
+        if (Input.GetKey((KeyCode)330))
+        {
+            slider.SetActive(true);
+            slider.GetComponent<Slider>().value += 0.5f * Time.deltaTime;
+        }
+        if (Input.GetKeyUp((KeyCode)330))
+        {
+            slider.GetComponent<Slider>().value = 0;
+            slider.SetActive(false);
+            isPressed = false;
+        }
     }
 
     public void OnUpdateSelected(BaseEventData data)
     {
         if ( isPressed )
         {
-            slider.GetComponent<Slider>().value += 0.01f * Time.deltaTime;
+            slider.GetComponent<Slider>().value += 0.5f * Time.deltaTime;
         }
     }
 

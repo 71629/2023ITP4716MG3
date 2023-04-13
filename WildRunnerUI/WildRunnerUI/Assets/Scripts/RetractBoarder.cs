@@ -28,7 +28,7 @@ public class RetractBoarder : MonoBehaviour
         Subtitle = GameObject.Find("Subtitle").GetComponent<Text>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         for(int i = 0; i < IgnoreBack.Length; i++)
         {

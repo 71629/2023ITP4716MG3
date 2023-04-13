@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text VolumeReset;
     [SerializeField] GameObject VolumeResetProgress;
 
+    public static bool VolumeResetInProgress;
+
     private void Start()
     {
         if (PlayerPrefs.GetInt("ControlDevice") == 1)
@@ -167,6 +169,7 @@ public class GameManager : MonoBehaviour
 
     public void ResetVolume()
     {
+        VolumeResetInProgress = true;
         StartCoroutine(VolumeChangeEffect());
     }
 
@@ -183,6 +186,8 @@ public class GameManager : MonoBehaviour
             SFXVolume.interactable = true;
             VolumeResetProgress.GetComponent<Slider>().value = 0;
             VolumeResetProgress.SetActive(false);
+            VolumeReset.GetComponentInParent<Button>().enabled = true;
+            VolumeResetInProgress = false;
         }
         else
         {
@@ -193,6 +198,7 @@ public class GameManager : MonoBehaviour
             VoiceVolume.interactable = false;
             SFXVolume.interactable = false;
             VolumeResetProgress.SetActive(true);
+            VolumeReset.GetComponentInParent<Button>().enabled = false;
         }
 
         MasterVolume.value += (1 - MasterVolume.value) * Time.deltaTime * 5;

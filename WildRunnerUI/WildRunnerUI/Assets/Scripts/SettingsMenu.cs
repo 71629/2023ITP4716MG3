@@ -19,20 +19,24 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        if ( MenuItem.Length != CategoryItem.Length )
+        //set true if need to check pairing
+        if (false)
         {
-            GameManager.QuitGame("Non-matching array length of Category list and Item list.");
-        }
-        for ( int i = 0; i < MenuItem.Length; i++ )
-        {
-            if(MenuItem[i].ToString() != CategoryItem[i].ToString())
+            if (MenuItem.Length != CategoryItem.Length)
             {
-                Debug.LogError("INVALID pair " + MenuItem[i] + " and " + CategoryItem[i] + ".");
-                GameManager.QuitGame("Non-matching MenuItem and CategoryItem GameObjects.");
+                GameManager.QuitGame("Non-matching array length of Category list and Item list.");
             }
-            else
+            for (int i = 0; i < MenuItem.Length; i++)
             {
-                Debug.Log(MenuItem[i].ToString() + " VALID pairing.");
+                if (MenuItem[i].ToString() != CategoryItem[i].ToString())
+                {
+                    Debug.LogError("INVALID pair " + MenuItem[i] + " and " + CategoryItem[i] + ".");
+                    GameManager.QuitGame("Non-matching MenuItem and CategoryItem GameObjects.");
+                }
+                else
+                {
+                    Debug.Log(MenuItem[i].ToString() + " VALID pairing.");
+                }
             }
         }
     }
@@ -56,7 +60,12 @@ public class SettingsMenu : MonoBehaviour
         }
         if (Input.GetKeyDown((KeyCode)332))
         {
-            EventSystem.current.SetSelectedGameObject(FirstItemInCategory[ActiveCategory]);
+            StartCoroutine(SelectNext());
         }
+    }
+    IEnumerator SelectNext()
+    {
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(FirstItemInCategory[ActiveCategory]);
     }
 }
