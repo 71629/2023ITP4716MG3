@@ -18,6 +18,6 @@ public class Statistics : MonoBehaviour
         if (!PlayerPrefs.HasKey("MusicVolume")) { PlayerPrefs.SetFloat("MusicVolume", 1); }
         if (!PlayerPrefs.HasKey("VoiceVolume")) { PlayerPrefs.SetFloat("VoiceVolume", 1); }
         if (!PlayerPrefs.HasKey("SFXVolume")) { PlayerPrefs.SetFloat("SFXVolume", 1); }
-        if (!PlayerPrefs.HasKey("DefaultDifficulty")) { PlayerPrefs.SetInt("DefaultDifficulty", 0); }
+        if (!PlayerPrefs.HasKey("DefaultDifficulty")) { PlayerPrefs.SetInt("DefaultDifficulty", 1); }
     }
 }
