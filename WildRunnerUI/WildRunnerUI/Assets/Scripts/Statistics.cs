@@ -19,5 +19,9 @@ public class Statistics : MonoBehaviour
         if (!PlayerPrefs.HasKey("VoiceVolume")) { PlayerPrefs.SetFloat("VoiceVolume", 1); }
         if (!PlayerPrefs.HasKey("SFXVolume")) { PlayerPrefs.SetFloat("SFXVolume", 1); }
         if (!PlayerPrefs.HasKey("DefaultDifficulty")) { PlayerPrefs.SetInt("DefaultDifficulty", 1); }
+
+        if (!PlayerPrefs.HasKey("Level1HighScore")) { PlayerPrefs.SetInt("Level1HighScore", 0); }
+        if (!PlayerPrefs.HasKey("Level2HighScore")) { PlayerPrefs.SetInt("Level2HighScore", 0); }
+        if (!PlayerPrefs.HasKey("Level3HighScore")) { PlayerPrefs.SetInt("Level3HighScore", 0); }
     }
 }

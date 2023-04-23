@@ -14,13 +14,19 @@ public class ResultScreenManager : MonoBehaviour
     [SerializeField] int Rating;
     [SerializeField] bool isLevelComplete;
 
+    [SerializeField] int LevelID;
+
     [SerializeField] TextMeshProUGUI Completion;
     [SerializeField] Animator Canvas;
     [SerializeField] TextMeshProUGUI BaseScoreText, AerobaticsText, TimeBonusText, ScoreMultiplierText, TotalScoreText;
-
+    [SerializeField] GameObject NewRecordDisplay;
+ 
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("Level1HighScore", 0);
+        TotalScore = (int)((BaseScore + TimeBonus + Aerobatics) * ScoreMultiplier);
+        StartCoroutine(StartCounting());
         if (isLevelComplete)
         {
             Canvas.enabled = true;
@@ -37,8 +43,10 @@ public class ResultScreenManager : MonoBehaviour
     {
         
     }
-    public void StartCounting()
+
+    IEnumerator StartCounting()
     {
+        yield return new WaitForSeconds(2.1f);
         StartCoroutine(BaseScoreAnimation());
     }
 
@@ -46,12 +54,17 @@ public class ResultScreenManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        tempBaseScore += (int)Mathf.Ceil((Time.deltaTime * BaseScore) / 0.6f);
+        tempBaseScore += (int)Mathf.Ceil((Time.deltaTime * BaseScore) / 1.2f);
         BaseScoreText.text = "<color=#aaaaaa>Base Score</color>\n<size=125>" + tempBaseScore + "</size>";
         if(tempBaseScore >= BaseScore)
         {
             tempBaseScore = BaseScore;
+            BaseScoreText.text = "<color=#aaaaaa>Base Score</color>\n<size=125>" + tempBaseScore + "</size>";
             StartCoroutine(AerobaticsAnimation());
+        }
+        else
+        {
+            StartCoroutine(BaseScoreAnimation());
         }
     }
 
@@ -59,12 +72,17 @@ public class ResultScreenManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        tempAerobatics += (int)Mathf.Ceil((Time.deltaTime * Aerobatics) / 0.6f);
-        AerobaticsText.text = "<color=#aaaaaa>Base Score</color>\n<size=125>" + tempAerobatics + "</size>";
+        tempAerobatics += (int)Mathf.Ceil((Time.deltaTime * Aerobatics) / 1.2f);
+        AerobaticsText.text = "<color=#aaaaaa>Aerobatics</color>\n<size=125>" + tempAerobatics + "</size>";
         if (tempAerobatics >= Aerobatics)
         {
             tempAerobatics = Aerobatics;
+            AerobaticsText.text = "<color=#aaaaaa>Aerobatics</color>\n<size=125>" + tempAerobatics + "</size>";
             StartCoroutine(TimeBonusAnimation());
+        }
+        else
+        {
+            StartCoroutine(AerobaticsAnimation());
         }
     }
 
@@ -72,12 +90,17 @@ public class ResultScreenManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        tempTimeBonus += (int)Mathf.Ceil((Time.deltaTime * TimeBonus) / 0.6f);
-        TimeBonusText.text = "<color=#aaaaaa>Base Score</color>\n<size=125>" + tempTimeBonus + "</size>";
+        tempTimeBonus += (int)Mathf.Ceil((Time.deltaTime * TimeBonus) / 1.2f);
+        TimeBonusText.text = "<color=#aaaaaa>Time Bonus</color>\n<size=125>" + tempTimeBonus + "</size>";
         if (tempTimeBonus >= TimeBonus)
         {
             tempTimeBonus = TimeBonus;
+            TimeBonusText.text = "<color=#aaaaaa>Time Bonus</color>\n<size=125>" + tempTimeBonus + "</size>";
             StartCoroutine(ScoreMultiplierAnimation());
+        }
+        else
+        {
+            StartCoroutine(TimeBonusAnimation());
         }
     }
 
@@ -85,12 +108,17 @@ public class ResultScreenManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        tempScoreMultiplier += (int)Mathf.Ceil((Time.deltaTime * ScoreMultiplier) / 0.6f);
-        ScoreMultiplierText.text = "<color=#aaaaaa>Base Score</color>\n<size=125>" + tempScoreMultiplier + "</size>";
+        tempScoreMultiplier += (int)Mathf.Ceil((Time.deltaTime * ScoreMultiplier) / 1.2f);
+        ScoreMultiplierText.text = "<color=#aaaaaa>Score Multiplier</color>\n<size=125>" + tempScoreMultiplier + "</size>";
         if (tempScoreMultiplier >= ScoreMultiplier)
         {
             tempScoreMultiplier = ScoreMultiplier;
+            ScoreMultiplierText.text = "<color=#aaaaaa>Score Multiplier</color>\n<size=125>" + tempScoreMultiplier + "</size>";
             StartCoroutine(TotalScoreAnimation());
+        }
+        else
+        {
+            StartCoroutine(ScoreMultiplierAnimation());
         }
     }
 
@@ -98,11 +126,22 @@ public class ResultScreenManager : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        tempTotalScore += (int)Mathf.Ceil((Time.deltaTime * TotalScore) / 0.6f);
-        TotalScoreText.text = "<color=#aaaaaa>Base Score</color>\n<size=125>" + tempTotalScore + "</size>";
+        tempTotalScore += (int)Mathf.Ceil((Time.deltaTime * TotalScore) / 1.2f);
+        TotalScoreText.text = $"total score\n<size=250>{tempTotalScore}</size>";
         if (tempTotalScore >= TotalScore)
         {
             tempTotalScore = TotalScore;
+            TotalScoreText.text = $"total score\n<size=250>{tempTotalScore}</size>";
+            if(TotalScore > PlayerPrefs.GetInt($"Level{LevelID}HighScore"))
+            {
+                PlayerPrefs.SetInt($"Level{LevelID}HighScore", TotalScore);
+                NewRecordDisplay.gameObject.SetActive(true);
+                TotalScoreText.text = $"<color=#000000>total score\n<size=250>{tempTotalScore}</size></color>";
+            }
+        }
+        else
+        {
+            StartCoroutine(TotalScoreAnimation());
         }
     }
 }
