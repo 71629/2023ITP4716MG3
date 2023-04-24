@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
+using UnityEngine.UI;
 using UnityEditor;
 
 public class EndPoint : ShowUI
@@ -22,7 +22,6 @@ public class EndPoint : ShowUI
     {
         if (other.gameObject.CompareTag("EndPoint"))
         {
-            Debug.Log("touch end point");
             showEndUI();
         }
     }
