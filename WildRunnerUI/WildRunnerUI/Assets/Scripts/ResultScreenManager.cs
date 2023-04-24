@@ -24,7 +24,7 @@ public class ResultScreenManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("Level1HighScore", 0);
+        //PlayerPrefs.SetInt("Level1HighScore", 0);
         TotalScore = (int)((BaseScore + TimeBonus + Aerobatics) * ScoreMultiplier);
         StartCoroutine(StartCounting());
         if (isLevelComplete)
