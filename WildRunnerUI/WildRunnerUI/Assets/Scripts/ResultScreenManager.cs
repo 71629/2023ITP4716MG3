@@ -144,4 +144,15 @@ public class ResultScreenManager : MonoBehaviour
             StartCoroutine(TotalScoreAnimation());
         }
     }
+
+    public void SetScore(int LevelID, bool isLevelComplete = false, int Rating = 0, int BaseScore = 0, int Aerobatics = 0, int TimeBonus = 0, float ScoreMultiplier = 1)
+    {
+        this.LevelID = LevelID;
+        this.isLevelComplete = isLevelComplete;
+        this.Rating = Rating;
+        this.BaseScore = BaseScore;
+        this.Aerobatics = Aerobatics;
+        this.TimeBonus = TimeBonus;
+        this.ScoreMultiplier = ScoreMultiplier;
+    }
 }

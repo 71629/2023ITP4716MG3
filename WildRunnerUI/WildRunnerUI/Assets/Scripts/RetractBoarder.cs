@@ -8,12 +8,13 @@ public class RetractBoarder : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
-    [SerializeField] GameObject SelectOnRetract;
-    [SerializeField] GameObject SettingsItems;
-    [SerializeField] Animator SettingsMenu;
-    [SerializeField] GameObject[] IgnoreBack;
 
     Text Subtitle;
+
+    [SerializeField] GameObject[] IgnoreBack;
+    [SerializeField] GameObject SettingsItems;
+    [SerializeField] GameObject SelectOnRetract;
+    [SerializeField] Animator SettingsMenu;
 
     // Start is called before the first frame update
     void Start()

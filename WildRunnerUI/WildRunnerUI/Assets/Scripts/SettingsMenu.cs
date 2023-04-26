@@ -19,26 +19,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
-        //set true if need to check pairing
-        if (false)
-        {
-            if (MenuItem.Length != CategoryItem.Length)
-            {
-                GameManager.QuitGame("Non-matching array length of Category list and Item list.");
-            }
-            for (int i = 0; i < MenuItem.Length; i++)
-            {
-                if (MenuItem[i].ToString() != CategoryItem[i].ToString())
-                {
-                    Debug.LogError("INVALID pair " + MenuItem[i] + " and " + CategoryItem[i] + ".");
-                    GameManager.QuitGame("Non-matching MenuItem and CategoryItem GameObjects.");
-                }
-                else
-                {
-                    Debug.Log(MenuItem[i].ToString() + " VALID pairing.");
-                }
-            }
-        }
+        
     }
 
     private void Update()
