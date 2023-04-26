@@ -15,11 +15,12 @@ public class ShowUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void showEndUI()
     {
-        canvas.enabled  = true;
+        canvas.enabled = true;
     }
 }
+
