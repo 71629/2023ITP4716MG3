@@ -1,0 +1,1 @@
+This folder stores all imported assets/plugins, please do not delete contents inside this folder.
