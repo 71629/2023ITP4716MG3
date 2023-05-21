@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 	[SerializeField] float BaseScore, TotalScore;
 	[SerializeField] float Time, StandardTime;
 	float[] Timer = new float[3];
-	gameObject Player;
+	GameObject Player;
 	Animator Canvas;
 	
 	// Start is called before the first frame update
