@@ -15,7 +15,17 @@ public class LevelManager : MonoBehaviour
 	void Start()
 	{
 		Player = GameObject.FindWithTag("Player");
+		if (Player == null)
+		{
+			Debug.LogError("No Player found!");
+			return;
+		}
 		Canvas = GameObject.FindWithTag("Canvas").GetComponent<Animator>();
+		if (Canvas == null)
+		{
+			Debug.LogError("No Canvas found!");
+			return;
+		}
 	}
 
 	// Update is called once per frame
