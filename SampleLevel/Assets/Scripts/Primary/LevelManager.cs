@@ -7,6 +7,9 @@ public class LevelManager : MonoBehaviour
 {
 	[SerializeField] float BaseScore, TotalScore;
 	[SerializeField] float Time, StandardTime;
+	[SerializeField] Object DirectionalIndicator;
+	[SerializeField] GameObject FinishArea;
+	[SerializeField] Sprite FinishIcon;
 	float[] Timer = new float[3];
 	GameObject Player;
 	Animator Canvas;
@@ -69,5 +72,11 @@ public class LevelManager : MonoBehaviour
 		{
 			FinishLevel();
 		}
+	}
+
+	private void DisplayFinishIndicator()
+	{ 
+		GameObject FinishIndicator = Instantiate(DirectionalIndicator, GameObject.Find("Canvas").transform) as GameObject;
+		FinishIndicator.name = FinishIndicator.ToString();
 	}
 }

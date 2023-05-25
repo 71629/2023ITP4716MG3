@@ -9,9 +9,9 @@ public class LevelHUD : MonoBehaviour
 	[SerializeField] GameObject FinishIndicator;
 	[SerializeField] Transform Player, Finish;
 	[SerializeField] Canvas Canvas;
-	[SerializeField] Image Icon;
+	[SerializeField] Sprite Icon;
 	[SerializeField] Color Color;
-	[SerializeField] float Distance;
+	[SerializeField] Text Distance;
 	// Start is called before the first frame update
 	void Start()
 	{
