@@ -69,7 +69,7 @@ namespace Traverser
 
                 TraverserParkourObject parkourObject = collider.GetComponent<TraverserParkourObject>();
 
-                if(parkourObject != null)
+                if (parkourObject != null)
                     ret = RequestTransition(ref parkourObject, false);
             }
 
@@ -114,7 +114,7 @@ namespace Traverser
             return isActiveAndEnabled;
         }
 
-        bool RequestTransition(ref TraverserParkourObject parkourObject, bool isDrop) 
+        bool RequestTransition(ref TraverserParkourObject parkourObject, bool isDrop)
         {
             bool ret = false;
 
@@ -160,7 +160,7 @@ namespace Traverser
                 default:
                     break;
             }
-            
+
             return ret;
         }
 
@@ -175,7 +175,7 @@ namespace Traverser
             if (speed <= locomotionAbility.jogSpeed + epsilon && speed >= locomotionAbility.walkSpeed)
                 ret = StartTransition(ref parkourData.vaultTableJogTransitionData, ref contactTransform, ref targetTransform);
             else if (speed > locomotionAbility.jogSpeed + epsilon)
-                ret = StartTransition(ref parkourData.vaultTableRunTransitionData ,ref contactTransform, ref targetTransform);
+                ret = StartTransition(ref parkourData.vaultTableRunTransitionData, ref contactTransform, ref targetTransform);
 
             return ret;
         }
@@ -208,31 +208,31 @@ namespace Traverser
             if (speed <= locomotionAbility.walkSpeed)
             {
                 if (!isDrop)
-                    ret = StartTransition(ref parkourData.climbPlatformWalkTransitionData ,ref contactTransform, ref targetTransform);
+                    ret = StartTransition(ref parkourData.climbPlatformWalkTransitionData, ref contactTransform, ref targetTransform);
                 else
                 {
                     contactTransform = targetTransform;
-                    ret = StartTransition(ref parkourData.dropPlatformWalkTransitionData ,ref contactTransform, ref targetTransform);
+                    ret = StartTransition(ref parkourData.dropPlatformWalkTransitionData, ref contactTransform, ref targetTransform);
                 }
             }
             else if (speed <= locomotionAbility.jogSpeed + epsilon && speed >= locomotionAbility.walkSpeed)
             {
                 if (!isDrop)
-                    ret = StartTransition(ref parkourData.climbPlatformJogTransitionData ,ref contactTransform, ref targetTransform);
+                    ret = StartTransition(ref parkourData.climbPlatformJogTransitionData, ref contactTransform, ref targetTransform);
                 else
                 {
                     contactTransform = targetTransform;
-                    ret = StartTransition(ref parkourData.dropPlatformJogTransitionData ,ref contactTransform, ref targetTransform);
+                    ret = StartTransition(ref parkourData.dropPlatformJogTransitionData, ref contactTransform, ref targetTransform);
                 }
             }
             else
             {
                 if (!isDrop)
-                    ret = StartTransition(ref parkourData.climbPlatformRunTransitionData ,ref contactTransform, ref targetTransform);
+                    ret = StartTransition(ref parkourData.climbPlatformRunTransitionData, ref contactTransform, ref targetTransform);
                 else
                 {
                     contactTransform = targetTransform;
-                    ret = StartTransition(ref parkourData.dropPlatformRunTransitionData ,ref contactTransform, ref targetTransform);
+                    ret = StartTransition(ref parkourData.dropPlatformRunTransitionData, ref contactTransform, ref targetTransform);
                 }
             }
 
@@ -248,11 +248,11 @@ namespace Traverser
 
             // --- Check if we are walking, jogging or running and play appropriate transition ---
             if (speed <= locomotionAbility.walkSpeed)
-                ret = StartTransition(ref parkourData.vaultLedgeWalkTransitionData ,ref contactTransform, ref targetTransform);
+                ret = StartTransition(ref parkourData.vaultLedgeWalkTransitionData, ref contactTransform, ref targetTransform);
             else if (speed <= locomotionAbility.jogSpeed + epsilon && speed >= locomotionAbility.walkSpeed)
-                ret = StartTransition(ref parkourData.vaultLedgeJogTransitionData ,ref contactTransform, ref targetTransform);
+                ret = StartTransition(ref parkourData.vaultLedgeJogTransitionData, ref contactTransform, ref targetTransform);
             else
-                ret = StartTransition(ref parkourData.vaultLedgeRunTransitionData ,ref contactTransform, ref targetTransform);
+                ret = StartTransition(ref parkourData.vaultLedgeRunTransitionData, ref contactTransform, ref targetTransform);
 
             return ret;
         }
@@ -303,7 +303,7 @@ namespace Traverser
             // --- Apply offsets to warp points ---
             contactTransform.t -= (transform.forward * transitionData.contactOffset);
             targetTransform.t += (transform.forward * transitionData.targetOffset);
-          
+
 
             return animationController.transition.StartTransition(ref transitionData, ref contactTransform, ref targetTransform);
         }

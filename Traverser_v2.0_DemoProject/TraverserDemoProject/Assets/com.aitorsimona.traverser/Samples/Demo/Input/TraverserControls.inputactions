@@ -152,6 +152,39 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "2D Vector",
+                    "id": "631fa7c9-24cb-4d1d-9d01-99047b885c30",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "dd12dd71-12c0-4191-940d-89f642278fb5",
+                    "path": "<HID::Sony Interactive Entertainment DualSense Edge Wireless Controller>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f3fc5db4-09e7-4888-91ef-5afa20f5d418",
+                    "path": "<HID::Sony Interactive Entertainment DualSense Edge Wireless Controller>/rz",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "554a8783-30b0-4b4d-b332-5206aeadc0cc",
                     "path": "<Gamepad>/leftStickPress",
@@ -231,7 +264,7 @@
                 {
                     "name": "",
                     "id": "abd47294-a740-48f8-9e52-eca708542f92",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard And Mouse",
