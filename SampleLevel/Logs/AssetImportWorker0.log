@@ -1,0 +1,245 @@
+Using pre-set license
+Built from '2021.1/release' branch; Version is '2021.1.0f1 (61a549675243) revision 6399305'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19045.2965; Version 2009; 64bit' Language: 'zh' Physical Memory: 16237 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+E:\Unity\Editor\2021.1.0f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/kinglingmk1/Desktop/SampleLevel
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+55890
+Successfully changed project path to: C:/Users/kinglingmk1/Desktop/SampleLevel
+C:/Users/kinglingmk1/Desktop/SampleLevel
+Using Asset Import Pipeline V2.
+Unable to join player connection multicast group.
+
+Refreshing native plugins compatible for Editor in 68.30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.0f1 (61a549675243)
+[Subsystems] Discovering subsystems at path E:/Unity/Editor/2021.1.0f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/kinglingmk1/Desktop/SampleLevel/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 (ID=0x2504)
+    Vendor:   NVIDIA
+    VRAM:     12129 MB
+    Driver:   31.0.15.3203
+Initialize mono
+Mono path[0] = 'E:/Unity/Editor/2021.1.0f1/Editor/Data/Managed'
+Mono path[1] = 'E:/Unity/Editor/2021.1.0f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'E:/Unity/Editor/2021.1.0f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56988
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: E:/Unity/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: E:/Unity/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: E:/Unity/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: E:/Unity/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Register platform support module: E:/Unity/Editor/2021.1.0f1/Editor/Data/PlaybackEngines/LuminSupport/UnityEditor.Lumin.Extensions.dll
+Registered in 0.001033 seconds.
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 71.88 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.956 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.003182 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 70.52 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.222 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
+Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3801 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 155.5 MB.
+System memory in use after: 155.4 MB.
+
+Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 4252.
+Total: 1.916400 ms (FindLiveObjects: 0.174200 ms CreateObjectMapping: 0.086700 ms MarkObjects: 1.497600 ms  DeleteObjects: 0.157100 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Import/Traverser/Scenes/DemoScene.unity
+  artifactKey: Guid(c25b659582ec4a14987a3012a65b4e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Import/Traverser/Scenes/DemoScene.unity using Guid(c25b659582ec4a14987a3012a65b4e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '449c02e0e4fea04ae4b3c214d2c2a38f') in 0.011751 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.770031 seconds.
+  path: Assets/Scenes/Stairs.unity
+  artifactKey: Guid(b9510d398befe2d45baa6295d80cc87f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Stairs.unity using Guid(b9510d398befe2d45baa6295d80cc87f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65a87e0f808eae660b609577cc8c7aa2') in 0.005881 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 108.534046 seconds.
+  path: Assets/Texture/Grass.jpg
+  artifactKey: Guid(1bbd17787fb97f5478a81ce8af930949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/Grass.jpg using Guid(1bbd17787fb97f5478a81ce8af930949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fdf39f5d4701973767b646d5462fcad') in 0.044343 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000178 seconds.
+  path: Assets/Texture/Concrete.jpg
+  artifactKey: Guid(811a4202081ffb34e9c11ccb41565ae1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/Concrete.jpg using Guid(811a4202081ffb34e9c11ccb41565ae1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f08bd2054c84008cc724bba977d4646e') in 0.008372 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000125 seconds.
+  path: Assets/Texture/Ground.jpg
+  artifactKey: Guid(ea14caf77fcf5e34c9a38d225219d799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/Ground.jpg using Guid(ea14caf77fcf5e34c9a38d225219d799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e9c093d00a40db218e0237f31d70e5f') in 0.014004 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Texture/sand.jpg
+  artifactKey: Guid(581d1bd3d010db04984ba41ae6e5f4e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/sand.jpg using Guid(581d1bd3d010db04984ba41ae6e5f4e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a718d4a720cf2de6d87cf338f682f90') in 0.007360 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003063 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.727 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3770 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.7 MB.
+System memory in use after: 158.6 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 4318.
+Total: 1.968600 ms (FindLiveObjects: 0.164200 ms CreateObjectMapping: 0.078900 ms MarkObjects: 1.547100 ms  DeleteObjects: 0.177300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 940.839046 seconds.
+  path: Assets/Import/Traverser
+  artifactKey: Guid(4991c854229e000428db8c727e732c8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Import/Traverser using Guid(4991c854229e000428db8c727e732c8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '247cc99aa5732eccbc0d662836277477') in 0.010234 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.051159 seconds.
+  path: Assets/Texture
+  artifactKey: Guid(cb3fc5ae3631aa34884f583c02d5715a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture using Guid(cb3fc5ae3631aa34884f583c02d5715a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b16af79b1558dab4784fdfa2d4903d33') in 0.005413 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 2.321728 seconds.
+  path: Assets/Materials
+  artifactKey: Guid(726237f9c0fe7ed488006cfbbff0422f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials using Guid(726237f9c0fe7ed488006cfbbff0422f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03416b7e474d38abc6fb42a80a0b37d9') in 0.005014 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 46.423476 seconds.
+  path: Assets/Material
+  artifactKey: Guid(710a051c81129b0479b7dfe72228b8ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Material using Guid(710a051c81129b0479b7dfe72228b8ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2194b8d52d9890ba5a08b693db146b4d') in 0.005653 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003149 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.725 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3766 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 158.7 MB.
+System memory in use after: 158.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 4321.
+Total: 2.119600 ms (FindLiveObjects: 0.185100 ms CreateObjectMapping: 0.084500 ms MarkObjects: 1.679100 ms  DeleteObjects: 0.169800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 86.497448 seconds.
+  path: Assets/Texture/window-7155791_1280.jpg
+  artifactKey: Guid(c30c72a3ba6f8be4991d660762856c2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/window-7155791_1280.jpg using Guid(c30c72a3ba6f8be4991d660762856c2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '051fa844bcfeb30a72774dc9bb8d3f1a') in 0.029975 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.563947 seconds.
+  path: Assets/Texture/Window.jpg
+  artifactKey: Guid(c30c72a3ba6f8be4991d660762856c2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/Window.jpg using Guid(c30c72a3ba6f8be4991d660762856c2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23a01179ef749c51216d13b4f2feaeff') in 0.008212 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 99.180402 seconds.
+  path: Assets/Texture/Window.jpg
+  artifactKey: Guid(c30c72a3ba6f8be4991d660762856c2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Texture/Window.jpg using Guid(c30c72a3ba6f8be4991d660762856c2a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '782fb7aa9b55644c0374285174162f11') in 0.009206 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 36.123815 seconds.
+  path: Assets/NewLayer 3.terrainlayer
+  artifactKey: Guid(8dff38af4bf02ee4ab5e217bc3c919ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NewLayer 3.terrainlayer using Guid(8dff38af4bf02ee4ab5e217bc3c919ae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c10ddcb89a7b9738a78ed74f5dda525') in 0.027909 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.291935 seconds.
+  path: Assets/NewLayer 1.terrainlayer
+  artifactKey: Guid(8a5643a8e1e2f914b8645ed9ea1b0813) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NewLayer 1.terrainlayer using Guid(8a5643a8e1e2f914b8645ed9ea1b0813) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b73dd1dfc5e1e5223d38c4751b2b814') in 0.008641 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003011 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for Lumin target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.56 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.720 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.48 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3767 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 164.7 MB.
+System memory in use after: 164.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 4370.
+Total: 2.113800 ms (FindLiveObjects: 0.168200 ms CreateObjectMapping: 0.082400 ms MarkObjects: 1.710100 ms  DeleteObjects: 0.152300 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
