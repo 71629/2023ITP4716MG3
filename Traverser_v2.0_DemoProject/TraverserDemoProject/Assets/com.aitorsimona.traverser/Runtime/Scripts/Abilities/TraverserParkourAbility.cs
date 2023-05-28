@@ -61,16 +61,24 @@ namespace Traverser
 
         public bool OnContact(ref TraverserTransform contactTransform, float deltaTime)
         {
+
+
+            GameObject.Find("ActionHUD").GetComponent<ActionHUD>().EnableActionHUD(0, "Vault", "__");
+
             bool ret = false;
 
             if (abilityController.inputController.GetInputButtonSouth() && !animationController.transition.isON)
             {
+                GameObject.Find("ActionHUD").GetComponent<ActionHUD>().DisableActionHUD(0);
+
                 ref Collider collider = ref controller.current.collider;
 
                 TraverserParkourObject parkourObject = collider.GetComponent<TraverserParkourObject>();
 
                 if (parkourObject != null)
+                {
                     ret = RequestTransition(ref parkourObject, false);
+                }
             }
 
             return ret;

@@ -6,7 +6,7 @@ namespace Traverser
     [RequireComponent(typeof(TraverserAbilityController))]
     [RequireComponent(typeof(TraverserCharacterController))]
 
-    public class TraverserLocomotionAbility : MonoBehaviour, TraverserAbility 
+    public class TraverserLocomotionAbility : MonoBehaviour, TraverserAbility
     {
         // --- Attributes ---
         [Header("Animation")]
@@ -53,10 +53,10 @@ namespace Traverser
 
         [Header("Rotation settings")]
         [Tooltip("How fast the character rotates in degrees/s.")]
-        public float rotationSpeed = 180.0f; 
+        public float rotationSpeed = 180.0f;
 
         [Tooltip("How fast the character's rotation speed will increase with given input in degrees/s^2.")]
-        public float rotationAcceleration = 15.0f; 
+        public float rotationAcceleration = 15.0f;
 
         [Tooltip("How fast the character achieves rotationAcceleration. Smaller values make the character reach target rotationAcceleration faster. Can't be 0.")]
         [Range(0.1f, 5.0f)]
@@ -154,19 +154,19 @@ namespace Traverser
 
         // --- Character's target movement speed ---
         private float desiredLinearSpeed = 0.0f;
-        
+
         // --- Stores current velocity in m/s ---
         private Vector3 currentVelocity = Vector3.zero;
 
         // --- Stores current rotation speed in degrees ---
-        private float currentRotationSpeed = 0.0f; 
+        private float currentRotationSpeed = 0.0f;
 
         // --- Stores the current time to reach max movement speed ---
         private float movementAccelerationTimer = 0.0f;
 
         // --- Sotes movementSpeedTimer's maximum value, has to be 1.0f ---
         private float movementAccelerationMaxTime = 1.0f;
-        
+
         // --- Stores the current time to reach desired velocity (decelerating) ---
         private float movementDecelerationTimer = 1.0f;
 
@@ -249,7 +249,7 @@ namespace Traverser
             }
 
 
-            if(fIKOn)
+            if (fIKOn)
             {
                 FindFootIKTarget(animationController.rightFootPos, ref rightFootIKTransform);
                 FindFootIKTarget(animationController.leftFootPos, ref leftFootIKTransform);
@@ -343,6 +343,10 @@ namespace Traverser
                     // --- If we are not close to the desired angle or contact point, do not handle contacts ---
                     if (Mathf.Abs(angle) > contactAngleMax || Mathf.Abs(Vector3.Distance(contactTransform.t, tmp.t)) > contactDistanceMax)
                     {
+                        for (int q = 0; q < 5; q++)
+                        {
+                            GameObject.Find("ActionHUD").GetComponent<ActionHUD>().DisableActionHUD(q);
+                        }
                         continue;
                     }
 
@@ -361,9 +365,9 @@ namespace Traverser
 
                     attemptTransition = false; // make sure we do not react to another collision
                 }
-                 else if ((state == LocomotionAbilityState.Falling
-                    && controller.CheckForwardCollision(transform.position + Vector3.up * controller.capsuleHeight * 0.9f, contactDistanceMax)) 
-                    || controller.CheckForwardCollision(transform.position - Vector3.up * 0.25f, contactDistanceMax))
+                else if ((state == LocomotionAbilityState.Falling
+                   && controller.CheckForwardCollision(transform.position + Vector3.up * controller.capsuleHeight * 0.9f, contactDistanceMax))
+                   || controller.CheckForwardCollision(transform.position - Vector3.up * 0.25f, contactDistanceMax))
                 {
                     // --- Check forward collision for possible ledge contact and inform abilities ---
 
@@ -383,7 +387,7 @@ namespace Traverser
 
                     //break;
                 }
-                else if (!collision.isGrounded 
+                else if (!collision.isGrounded
                     || (collision.ground && controller.previous.ground && (collision.ground.GetInstanceID() != controller.previous.ground.GetInstanceID()))) // we are dropping/falling down and found ground
                 {
                     // --- Let other abilities take control on drop ---
@@ -404,8 +408,8 @@ namespace Traverser
                 float distanceToGround = controller.GetYDistanceToGround(tmp.t + Vector3.up * 0.1f);
 
                 // --- We are falling and the simulation has found a new ground, we may activate a landing transition ---             
-                if (!controller.groundSnap && distanceToGround != -1.0f && contactAbility == null && collision.isGrounded && collision.ground 
-                    && (controller.previous.ground == null || distanceToGround < 0.15f) )
+                if (!controller.groundSnap && distanceToGround != -1.0f && contactAbility == null && collision.isGrounded && collision.ground
+                    && (controller.previous.ground == null || distanceToGround < 0.15f))
                 {
                     bool success = false;
 
@@ -490,7 +494,7 @@ namespace Traverser
             lastLeftFootPositionY = transform.InverseTransformPoint(leftFootIKTransform.t).y;
             lastPelvisCorrectedY = animationController.skeletonPos.y;
 
-            if(abilityController.ragdollController != null)
+            if (abilityController.ragdollController != null)
                 abilityController.ragdollController.SetRagdollProfile(ref ragdollProfile);
         }
 
@@ -519,7 +523,7 @@ namespace Traverser
             return state;
         }
 
-        private float GetDesiredSpeed(float deltaTime)        
+        private float GetDesiredSpeed(float deltaTime)
         {
             float desiredSpeed;
             float moveIntensity = GetDesiredMovementIntensity(deltaTime);
@@ -531,7 +535,7 @@ namespace Traverser
                 desiredLinearSpeed += (jogSpeed - runSpeed) * deltaTime * runSpeedTime;
 
             // --- Increase timer ---
-            movementAccelerationTimer += jogSpeedTime*deltaTime;
+            movementAccelerationTimer += jogSpeedTime * deltaTime;
 
             // --- Cap timer ---
             if (movementAccelerationTimer > movementAccelerationMaxTime)
@@ -565,7 +569,7 @@ namespace Traverser
             if (moveIntensity < previousMovementIntensity)
             {
                 moveIntensity = movementDecelerationTimer;
-                previousMovementIntensity = moveIntensity; 
+                previousMovementIntensity = moveIntensity;
 
                 // --- We use movementDecelerationTime to decelerate, bigger value makes decelerating a longer task ---
                 movementDecelerationTimer -= movementDecelerationRatio * deltaTime;
@@ -610,8 +614,8 @@ namespace Traverser
         {
             // --- Enable jumping only if on the ground and in moving state ---
             if (!wasJumping && abilityController.inputController.GetInputButtonNorth() && state == LocomotionAbilityState.Moving
-            && (animationController.animator.GetCurrentAnimatorStateInfo(0).IsName(locomotionData.locomotionONAnimation.animationStateName) 
-               || animationController.animator.GetCurrentAnimatorStateInfo(0).IsName(locomotionData.locomotionOFFAnimation.animationStateName)) 
+            && (animationController.animator.GetCurrentAnimatorStateInfo(0).IsName(locomotionData.locomotionONAnimation.animationStateName)
+               || animationController.animator.GetCurrentAnimatorStateInfo(0).IsName(locomotionData.locomotionOFFAnimation.animationStateName))
             && !animationController.animator.IsInTransition(0))
             {
                 state = LocomotionAbilityState.Jumping;
@@ -628,7 +632,7 @@ namespace Traverser
             }
 
             // --- If on jumping state, update jump speed ---
-            if ((state == LocomotionAbilityState.Jumping 
+            if ((state == LocomotionAbilityState.Jumping
                 || state == LocomotionAbilityState.Falling)
                 && wasJumping)
             {
@@ -637,7 +641,7 @@ namespace Traverser
 
 
                 // --- Let the animation play for some time before applying jump speed ---
-                if (jumpingAnim 
+                if (jumpingAnim
                     && animationController.animator.GetCurrentAnimatorStateInfo(0).normalizedTime > dampingTime
                     && currentJumpSpeed == 0.0f)
                 {
@@ -670,7 +674,7 @@ namespace Traverser
             }
 
             // --- Activate landing animation ---
-            if (state == LocomotionAbilityState.Falling 
+            if (state == LocomotionAbilityState.Falling
                 && currentJumpSpeed <= 0.0f
                 && wasJumping)
             {
@@ -721,7 +725,7 @@ namespace Traverser
             // --- Set left foot weights (sampling animation curve) and adjust IK target ---
             animationController.animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1);
             animationController.animator.SetIKRotationWeight(AvatarIKGoal.LeftFoot, animationController.animator.GetFloat("IKLeftFootWeight"));
-            AdjustIkTarget(AvatarIKGoal.LeftFoot, ref leftFootIKTransform, ref lastLeftFootPositionY);      
+            AdjustIkTarget(AvatarIKGoal.LeftFoot, ref leftFootIKTransform, ref lastLeftFootPositionY);
         }
 
         void AdjustIkTarget(AvatarIKGoal foot, ref TraverserTransform IKTransform, ref float lastFootPositionY)
@@ -780,9 +784,9 @@ namespace Traverser
         {
             // --- Shoot a ray downwards from a higher position respect the foot, update IK target transform ---
             RaycastHit hit;
-            footPosition.y = transform.position.y + feetIKGroundDistance*0.5f;
+            footPosition.y = transform.position.y + feetIKGroundDistance * 0.5f;
 
-            if(debugDraw)
+            if (debugDraw)
                 Debug.DrawLine(footPosition, footPosition + Vector3.down * feetIKGroundDistance, Color.yellow);
 
             if (Physics.Raycast(footPosition, Vector3.down, out hit, feetIKGroundDistance, controller.characterCollisionMask))
@@ -804,7 +808,7 @@ namespace Traverser
             Gizmos.color = Color.cyan;
 
             // --- Draw forward collision ray ---
-            Gizmos.DrawRay(transform.position + Vector3.up * controller.capsuleHeight * 0.9f, transform.forward*contactDistanceMax);
+            Gizmos.DrawRay(transform.position + Vector3.up * controller.capsuleHeight * 0.9f, transform.forward * contactDistanceMax);
         }
 
         // -------------------------------------------------

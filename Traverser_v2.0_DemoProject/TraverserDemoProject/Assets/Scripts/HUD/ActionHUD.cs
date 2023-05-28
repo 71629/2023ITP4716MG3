@@ -36,10 +36,19 @@ public class ActionHUD : MonoBehaviour
 
     }
 
-    public void ToggleActionHUD(ActionType actionType, string ActionName, string ControlName)
+    public void EnableActionHUD(int actionType, string ActionName, string ControlName)
     {
-        GameObject.Find(actionType.ToString()).SetActive(true);
-        GameObject.Find(actionType.ToString()).GetComponentInChildren<Text>().text = ActionName;
-        GameObject.Find(actionType.ToString()).GetComponent<Transform>().GetChild(1).GetComponent<Text>().text = ControlName;
+        Debug.Log(actionType);
+
+        gameObject.transform.GetChild(actionType).gameObject.SetActive(true);
+        gameObject.transform.GetChild(actionType).GetComponentInChildren<Text>().text = ActionName;
+        gameObject.transform.GetChild(actionType).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Text>().text = ControlName;
+    }
+
+    public void DisableActionHUD(int actionType)
+    {
+        gameObject.transform.GetChild(actionType).gameObject.SetActive(false);
+        gameObject.transform.GetChild(actionType).GetComponentInChildren<Text>().text = null;
+        gameObject.transform.GetChild(actionType).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Text>().text = null;
     }
 }
