@@ -8,22 +8,6 @@ public class ActionHUD : MonoBehaviour
 {
     [SerializeField] Sprite KeyboardKeySprite;
     [SerializeField] Sprite[] GamepadKeys;
-
-    public enum KeyboardKeys
-    {
-        Q,
-        E,
-        shift,
-        Space,
-    }
-
-    public enum ActionType
-    {
-        HighAction = 0,
-        DownAction = 1,
-        LeftAction = 2,
-        RightAction = 3,
-    }
     // Start is called before the first frame update
     void Start()
     {
