@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
+using System.Collections.Generic;
+using System;
+using UnityEngine.Debug;
 
 namespace Traverser
 {
@@ -191,6 +194,14 @@ namespace Traverser
             animationController = GetComponent<TraverserAnimationController>();
             leftFootIKTransform = TraverserTransform.Get(Vector3.zero, Quaternion.identity);
             rightFootIKTransform = TraverserTransform.Get(Vector3.zero, Quaternion.identity);
+        }
+
+        void Update()
+        {
+            // * Update ability state *
+
+            // ! DEBUG ONLY, DISABLE AFTER USE AND REMOVE UPON RELEASE !
+            Debug.Log(GetLocomotionState());
         }
 
         // -------------------------------------------------
