@@ -201,6 +201,7 @@ namespace Traverser
             // * Update ability state *
 
             // ! DEBUG ONLY, DISABLE AFTER USE AND REMOVE UPON RELEASE !
+            // TODO: Check if the GetLocomotionState() is causing Landing bug
             Debug.Log(GetLocomotionState());
         }
 
