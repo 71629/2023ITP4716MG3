@@ -22,8 +22,6 @@ public class ActionHUD : MonoBehaviour
 
     public void EnableActionHUD(int actionType, string ActionName, string ControlName)
     {
-        Debug.Log(actionType);
-
         gameObject.transform.GetChild(actionType).gameObject.SetActive(true);
         gameObject.transform.GetChild(actionType).GetComponentInChildren<Text>().text = ActionName;
         gameObject.transform.GetChild(actionType).GetComponent<Transform>().GetChild(0).GetComponent<Transform>().GetChild(0).GetComponent<Text>().text = ControlName;

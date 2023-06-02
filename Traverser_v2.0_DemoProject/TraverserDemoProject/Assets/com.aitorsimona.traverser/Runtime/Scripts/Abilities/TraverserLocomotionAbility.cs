@@ -2,7 +2,6 @@
 using UnityEngine.Assertions;
 using System.Collections.Generic;
 using System;
-using UnityEngine.Debug;
 
 namespace Traverser
 {
