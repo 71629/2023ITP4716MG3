@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Lv1EndGame : MonoBehaviour
 {
@@ -109,6 +111,7 @@ public class Lv1EndGame : MonoBehaviour
                 FinishLine.SetActive(false);
                 FTrigger = false;
                 Debug.Log("Final Score: " + TotalScore);
+                SceneManager.LoadScene("EndGame");
             }
 
         }
