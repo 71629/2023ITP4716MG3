@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class LoadingScreen : MonoBehaviour
 {
-    public GameObject LSR;
     public double delay = 0.5;
     float timer;
     // Update is called once per frame
     void Update()
     {
-        //transform.LookAt();
         DelayFunction();
     }
     void DelayFunction()
