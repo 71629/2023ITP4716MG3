@@ -130,6 +130,9 @@ public class StuckEscape : MonoBehaviour
     private void UpdatePlayerInformation()
     {
         // * Update PlayerTransform
-        playerInformation.Position = Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position;
+        if (PlayerState == "Moving")
+        {
+            playerInformation.Position = Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position;
+        }
     }
 }
