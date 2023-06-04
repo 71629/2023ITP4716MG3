@@ -98,9 +98,6 @@ public class StuckEscape : MonoBehaviour
     private void SEC()
     {
         SECGuard();
-
-
-
         ResetSECBuffer();
     }
 
