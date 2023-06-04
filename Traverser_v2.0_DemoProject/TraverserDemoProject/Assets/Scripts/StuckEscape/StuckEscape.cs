@@ -11,17 +11,26 @@ public class StuckEscape : MonoBehaviour
 
     private void Update()
     {
+        // * Check if the player wants to use SEC
+        CheckCancel();
+        CheckSECCall();
+    }
 
+    private void CheckSECCall()
+    {
+        // * If the Backquote key is held, call SECBuffer function
+        if (Keyboard.current.backquoteKey.isPressed)
+        {
+            SECBuffer();
+        }
+    }
+
+    private void CheckCancel()
+    {
         // * If the Backquote key is released, hide the prompt and reset slider value
         if (Keyboard.current.backquoteKey.wasReleasedThisFrame)
         {
             CancelSEC();
-        }
-
-        // * If the Backquote key is held, increase slider value
-        if (Keyboard.current.backquoteKey.isPressed)
-        {
-            SECBuffer();
         }
     }
 
