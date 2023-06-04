@@ -116,21 +116,26 @@ public class StuckEscape : MonoBehaviour
 
     private void SECGuard()
     {
-        if (PlayerState == "Moving")
+        if (PlayerState == "Moving" && !Agent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Landing"))
         {
-            animator.SetTrigger("Halt");
-            GetComponentInChildren<Transform>().GetChild(0).GetComponentInChildren<Text>().text = "SEC NOT REQUIRED";
-            StuckEscapePrompt.GetComponentInChildren<Slider>().value = 0.9999f;
+            HaltSEC();
             return;
         }
         Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position = playerInformation.Position;
+    }
+
+    private void HaltSEC()
+    {
+        animator.SetTrigger("Halt");
+        GetComponentInChildren<Transform>().GetChild(0).GetComponentInChildren<Text>().text = "SEC NOT REQUIRED";
+        StuckEscapePrompt.GetComponentInChildren<Slider>().value = 0.9999f;
     }
 
     // * Update the player's information
     private void UpdatePlayerInformation()
     {
         // * Update PlayerTransform
-        if (PlayerState == "Moving")
+        if (PlayerState == "Moving" && !Agent.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Landing"))
         {
             playerInformation.Position = Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position;
         }
