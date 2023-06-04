@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 144791462}
   - component: {fileID: 144791461}
   - component: {fileID: 144791465}
+  - component: {fileID: 144791466}
   m_Layer: 5
   m_Name: StuckEscape
   m_TagString: Untagged
@@ -626,6 +627,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StuckEscapePrompt: {fileID: 751420152}
   Agent: {fileID: 1186809553}
+--- !u!95 &144791466
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144791460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1457d932ee8b8684ebd6e6313dd759c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &160972137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2649,7 +2669,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HOLD TO ESCAPE STUCK
+  m_Text: HOLD TO START SEC
 --- !u!222 &922071774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3552,8 +3572,8 @@ RectTransform:
   m_Father: {fileID: 2015108575}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4144,7 +4164,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

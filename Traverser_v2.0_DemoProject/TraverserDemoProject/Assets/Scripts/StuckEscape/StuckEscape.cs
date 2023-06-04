@@ -13,6 +13,8 @@ public class StuckEscape : MonoBehaviour
     [SerializeField] GameObject Agent;
     string PlayerState;
     PlayerInformation playerInformation;
+    Animator animator;
+    bool ProgressBar;
 
     struct PlayerInformation
     {
@@ -39,6 +41,7 @@ public class StuckEscape : MonoBehaviour
 
         PlayerState = Agent.GetComponent<Traverser.TraverserLocomotionAbility>().GetLocomotionState().ToString();
         playerInformation = new PlayerInformation();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     private void Update()
@@ -55,6 +58,10 @@ public class StuckEscape : MonoBehaviour
         {
             SECBuffer();
         }
+        if (Keyboard.current.backquoteKey.wasPressedThisFrame)
+        {
+            animator.SetTrigger("Start");
+        }
     }
 
     private void CheckCancel()
@@ -62,7 +69,9 @@ public class StuckEscape : MonoBehaviour
         // * If the Backquote key is released, hide the prompt and reset slider value
         if (Keyboard.current.backquoteKey.wasReleasedThisFrame)
         {
-            CancelSEC();
+            ProgressBar = true;
+            animator.SetTrigger("End");
+            Invoke("CancelSEC", 0.5f);
         }
     }
 
@@ -75,13 +84,16 @@ public class StuckEscape : MonoBehaviour
     private void ResetSECBuffer()
     {
         StuckEscapePrompt.GetComponentInChildren<Slider>().value = 0;
-        StuckEscapePrompt.SetActive(false);
+        GetComponentInChildren<Transform>().GetChild(0).GetComponentInChildren<Text>().text = "HOLD TO START SEC";
     }
 
     private void SECBuffer()
     {
-        StuckEscapePrompt.SetActive(true);
-        StuckEscapePrompt.GetComponentInChildren<Slider>().value += Time.deltaTime * 0.5f;
+        if (ProgressBar)
+        {
+            animator.enabled = true;
+            StuckEscapePrompt.GetComponentInChildren<Slider>().value += Time.deltaTime * 0.5f;
+        }
 
         ExecuteSEC(StuckEscapePrompt.GetComponentInChildren<Slider>().value);
     }
@@ -91,6 +103,7 @@ public class StuckEscape : MonoBehaviour
         // * Checks is the value is full
         if (value >= 1)
         {
+            ProgressBar = false;
             SEC();
         }
     }
@@ -105,7 +118,9 @@ public class StuckEscape : MonoBehaviour
     {
         if (PlayerState == "Moving")
         {
-            // TODO: Prompt SEC not required
+            animator.SetTrigger("Halt");
+            GetComponentInChildren<Transform>().GetChild(0).GetComponentInChildren<Text>().text = "SEC NOT REQUIRED";
+            StuckEscapePrompt.GetComponentInChildren<Slider>().value = 0.9999f;
             return;
         }
         Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position = playerInformation.Position;
