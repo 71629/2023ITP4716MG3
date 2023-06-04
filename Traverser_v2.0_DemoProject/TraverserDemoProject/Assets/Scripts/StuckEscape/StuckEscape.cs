@@ -6,8 +6,40 @@ using UnityEngine.UI;
 
 public class StuckEscape : MonoBehaviour
 {
-    // * Objects containing neccessary information
+    [Header("Stuck Escape Prompt")]
     [SerializeField] GameObject StuckEscapePrompt;
+
+    [Header("Player Transform")]
+    [SerializeField] GameObject Agent;
+    string PlayerState;
+    PlayerInformation playerInformation;
+
+    struct PlayerInformation
+    {
+        float _TimeStamp;
+        Vector3 _Position;
+
+        public Vector3 Position
+        {
+            get { return _Position; }
+            set { Position = value; }
+        }
+
+        public float TimeStamp
+        {
+            get { return _TimeStamp; }
+            set { TimeStamp = value; }
+        }
+    }
+
+    private void Start()
+    {
+        // * Resets the slider value, in case if it's not 0 somehow
+        ResetSECBuffer();
+
+        PlayerState = Agent.GetComponent<Traverser.TraverserLocomotionAbility>().GetLocomotionState().ToString();
+        playerInformation = new PlayerInformation();
+    }
 
     private void Update()
     {
@@ -65,6 +97,27 @@ public class StuckEscape : MonoBehaviour
 
     private void SEC()
     {
+        SECGuard();
+
+
+
         ResetSECBuffer();
+    }
+
+    private void SECGuard()
+    {
+        if (PlayerState == "Moving")
+        {
+            // TODO: Prompt SEC not required
+            return;
+        }
+        Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position = playerInformation.Position;
+    }
+
+    // * Update the player's information
+    private void UpdatePlayerInformation()
+    {
+        // * Update PlayerTransform
+        playerInformation.Position = Agent.GetComponent<Transform>().GetComponentInParent<Transform>().position;
     }
 }
