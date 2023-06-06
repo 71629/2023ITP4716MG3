@@ -113,7 +113,6 @@ public class Lv1EndGame : MonoBehaviour
                 Debug.Log("Final Score: " + TotalScore);
                 SceneManager.LoadScene("EndGame");
             }
-
         }
     }
 }

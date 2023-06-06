@@ -409,7 +409,7 @@ namespace Traverser
 
                 // --- We are falling and the simulation has found a new ground, we may activate a landing transition ---             
                 if (!controller.groundSnap && distanceToGround != -1.0f && contactAbility == null && collision.isGrounded && collision.ground
-                    && (controller.previous.ground == null || distanceToGround < 0.15f))
+                    && (controller.previous.ground == null || distanceToGround < 0.15f)) // distanceToGround < 1.25f
                 {
                     bool success = false;
 
@@ -430,7 +430,7 @@ namespace Traverser
                     }
                     else if ((state == LocomotionAbilityState.Moving
                         && distanceToGround > controller.capsuleHeight
-                        && distanceToGround < controller.capsuleHeight * 1.25f)
+                        && distanceToGround < controller.capsuleHeight * 0.25f)
                         || (distanceToGround < 0.15f && state == LocomotionAbilityState.Falling))
                     {
                         animationController.animator.CrossFade(locomotionData.fallTransitionAnimation.animationStateName, locomotionData.fallTransitionAnimation.transitionDuration, 0);
