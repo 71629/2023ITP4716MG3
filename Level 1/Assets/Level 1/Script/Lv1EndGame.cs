@@ -24,7 +24,7 @@ public class Lv1EndGame : MonoBehaviour
     
     //This trigger is to note did the player trigger the point.
     public bool Trigger1 = true, Trigger2 = true, Trigger3 = true, Trigger4 = true, FTrigger = true;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +32,8 @@ public class Lv1EndGame : MonoBehaviour
         if(FTrigger == true)
         {
             GameTimer();
-        }
+            
+        } 
     }
 
     //Timer for calculate playing time and give the bonus (Default Bonus = 2f)
@@ -63,7 +64,10 @@ public class Lv1EndGame : MonoBehaviour
         }
 
     }
-
+    float getScore()
+    {
+        return TotalScore;
+    }
     //void OnTriggerEnter(Colider col) Comment
     //Each aerobatics have trigger point
     //After trigger once will disable the trigger point
