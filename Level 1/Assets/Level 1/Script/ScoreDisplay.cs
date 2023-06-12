@@ -7,7 +7,7 @@ public class ScoreDisplay : MonoBehaviour
 
 {
     [SerializeField] TMP_Text scoreDisplay;
-    public float score = 0f;
+    public float score = 3000f; // 4 Aerobatics + 1 Base Score
     // Update is called once per frame
     void Update()
     {
