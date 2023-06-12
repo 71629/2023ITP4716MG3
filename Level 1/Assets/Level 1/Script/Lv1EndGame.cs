@@ -20,12 +20,16 @@ public class Lv1EndGame : MonoBehaviour
 
     public float TotalScore = 0, timer = -0.5f; //Timer -0.5 because of loading screen delay 0.5 second start
 
-    public GameObject AerobaticsType1, AerobaticsType2, AerobaticsType3, AerobaticsType4, FinishLine;
+    public GameObject AerobaticsType1, AerobaticsType2, AerobaticsType3, AerobaticsType4, FinishLine, VictoryScreen, FailedScreen, DisableTimer;
     
     //This trigger is to note did the player trigger the point.
     public bool Trigger1 = true, Trigger2 = true, Trigger3 = true, Trigger4 = true, FTrigger = true;
-
     // Update is called once per frame
+    void Start()
+    {
+        VictoryScreen.SetActive(false);
+        FailedScreen.SetActive(false);
+    }
     void Update()
     {
         //If trigger the end point it will stop the timer.
@@ -114,8 +118,9 @@ public class Lv1EndGame : MonoBehaviour
                 TotalScore = (TotalScore + BaseScore) * TimeBonus;
                 FinishLine.SetActive(false);
                 FTrigger = false;
+                VictoryScreen.SetActive(true);
+                DisableTimer.SetActive(false);
                 Debug.Log("Final Score: " + TotalScore);
-                SceneManager.LoadScene("EndGame");
             }
         }
     }
