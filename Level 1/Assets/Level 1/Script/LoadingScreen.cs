@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LoadingScreen : MonoBehaviour
 {
-    public double delay = 0.5;
-    float timer;
+    public double delay = 3f;
+    float timer = 0f;
     // Update is called once per frame
     void Update()
     {
@@ -16,7 +16,7 @@ public class LoadingScreen : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > delay)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); //Wait 3 second and destroy loading screen
         }
     }
 }
