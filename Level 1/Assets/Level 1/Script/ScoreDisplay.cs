@@ -5,19 +5,20 @@ using TMPro;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public GameObject Barrier1, Barrier2, Barrier3, Barrier4, Final, Victory, GameOver;
+    public GameObject Barrier1, Barrier2, Barrier3, Barrier4, Final, Victory, GameOver, Player;
     public float TimeBonus = 2f;
     [SerializeField] TMP_Text scoreDisplay;
     public float score = 0f;
     public float timer = 0f;
-    public bool check1 = true, check2 = true, check3 = true, check4 = true, check5 = true;
+    public bool check1 = true, check2 = true, check3 = true, check4 = true, check5 = true, VictoryTF=true;
     // Update is called once per frame
     void Update()
     {
         scoreDisplay.text = score.ToString("f0");
 
-        if(Victory == null) //If canvas victory destroy, then stop timer then game over.
+        if(Victory == null && VictoryTF == true) //If canvas victory destroy, then stop timer then game over.
         {
+            VictoryTF = false;
             score = score - timer;
             //No bonus
         }
@@ -51,6 +52,7 @@ public class ScoreDisplay : MonoBehaviour
             check5 = false;
             score = score + 1000;
             score = score * TimeBonus - timer;
+            Destroy(Player);
         }
         if(Victory == null)
         {
