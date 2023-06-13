@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    public string Stringscene = "RE2_Test";
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +17,8 @@ public class NextLevel : MonoBehaviour
 
     }
 
-    public void NextScene(string Stringscene)
+    public void NextScene(string scene)
     {
-        SceneManager.LoadScene(Stringscene);
+        SceneManager.LoadScene(scene);
     }
 }

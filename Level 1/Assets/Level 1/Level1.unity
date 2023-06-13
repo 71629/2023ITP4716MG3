@@ -7011,7 +7011,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f15895c0d6990e4f93c7aead075edde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stringscene: RE2_Test
 --- !u!1001 &410688981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19294,15 +19293,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178366001073, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.008687695
+      value: 0.008687702
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178366001073, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000063329935
+      value: 0.000000044703484
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178366001073, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -7.566996e-10
+      value: -4.0745363e-10
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178366001078, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: orthographic size
@@ -19366,7 +19365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178828654131, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2609804
+      value: 0.26098043
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178828654131, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.y
@@ -19374,7 +19373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849755178828654131, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2654471
+      value: 0.26544714
       objectReference: {fileID: 0}
     - target: {fileID: 1849755179143273644, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19394,7 +19393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849755179143273644, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0066085705
+      value: -0.006608579
       objectReference: {fileID: 0}
     - target: {fileID: 1849755179143273644, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.y
@@ -19402,7 +19401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1849755179143273644, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.006032376
+      value: -0.006032384
       objectReference: {fileID: 0}
     - target: {fileID: 5909181095880798584, guid: 615beafb8c4da3343a20dce4235c6c07, type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -20770,6 +20769,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681ec6adf7275ec42b62f5a76d8eb55f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DisableController: {fileID: 1847102087}
+  CameraAble: {fileID: 1104690734}
   delay: 3
 --- !u!114 &1248953088
 MonoBehaviour:
@@ -22606,7 +22607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f15895c0d6990e4f93c7aead075edde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stringscene: RE2_Test
 --- !u!114 &1419306232
 MonoBehaviour:
   m_ObjectHideFlags: 0
