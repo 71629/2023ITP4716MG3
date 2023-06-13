@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Lv1EndGame : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject cama;
+
     [Header("Base Score")]
     [Tooltip("Score to be added when the player reach the finish zone")]
     [SerializeField] float BaseScore = 1000f; //Base score 1000 mark while finish
@@ -117,6 +120,9 @@ public class Lv1EndGame : MonoBehaviour
                 TotalScore = (TotalScore + BaseScore) * TimeBonus;
                 Destroy(FinishLine);
                 VictoryScreen.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                cama.SetActive(true);
                 FTrigger = false;
                 Debug.Log("Final Score: " + TotalScore);
             }

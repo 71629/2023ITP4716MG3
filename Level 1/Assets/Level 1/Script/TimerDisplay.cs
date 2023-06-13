@@ -8,12 +8,18 @@ using UnityEngine;
 
 public class TimerDisplay : MonoBehaviour
 {
+    [SerializeField]
+    public GameObject cama;
+
     public GameObject timerDisplay;
     public float timer = -3f;
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         timerDisplay.SetActive(false);
+        cama.SetActive(false);
     }
 
     // Update is called once per frame
