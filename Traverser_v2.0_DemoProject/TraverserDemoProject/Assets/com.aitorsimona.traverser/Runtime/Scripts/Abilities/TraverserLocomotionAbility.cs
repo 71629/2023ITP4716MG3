@@ -389,7 +389,7 @@ namespace Traverser
                     {
                         for (int q = 0; q < 5; q++)
                         {
-                            GameObject.Find("ActionHUD").GetComponent<ActionHUD>().DisableActionHUD(q);
+                            // ! Disable actionHUD here
                         }
                         continue;
                     }
