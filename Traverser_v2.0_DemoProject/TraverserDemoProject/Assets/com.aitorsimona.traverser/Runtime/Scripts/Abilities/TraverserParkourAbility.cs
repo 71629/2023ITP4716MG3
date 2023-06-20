@@ -75,10 +75,7 @@ namespace Traverser
 			bool ret = false;
 
 			if (abilityController.inputController.GetInputButtonSouth() && !animationController.transition.isON)
-			{
-				// ! Make actionHUD invisible here
-				
-
+			{	
 				ref Collider collider = ref controller.current.collider;
 
 				TraverserParkourObject parkourObject = collider.GetComponent<TraverserParkourObject>();

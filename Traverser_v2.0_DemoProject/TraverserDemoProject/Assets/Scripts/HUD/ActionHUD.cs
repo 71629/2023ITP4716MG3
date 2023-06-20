@@ -13,7 +13,8 @@ public class ActionHUD : MonoBehaviour
 	{
 		{ Key.Q, "Q" },
 		{ Key.E, "E" },
-		{ Key.Space, "__" }
+		{ Key.Space, "__" },
+		{ Key.LeftShift, "LS"}
 	};
 
 	void Update()
@@ -25,6 +26,9 @@ public class ActionHUD : MonoBehaviour
 				FindButtonHintsByDisplayText(kvp.Value);
 			}
 		}
+		
+		// ! Debugging code
+		Debug.Log($"Current Traverser climbing state: {GameObject.Find("Agent").GetComponent<TraverserClimbingAbility>().GetState()}");  
 	}
 
 	void FindButtonHintsByDisplayText(string displayText)
