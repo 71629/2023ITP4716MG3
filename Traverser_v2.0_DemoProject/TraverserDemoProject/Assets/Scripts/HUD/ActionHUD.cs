@@ -19,6 +19,7 @@ public class ActionHUD : MonoBehaviour
 
 	void Update()
 	{	
+		
 		foreach (var kvp in keyToDisplayText)
 		{
 			if (Keyboard.current[kvp.Key].wasPressedThisFrame)
@@ -26,6 +27,8 @@ public class ActionHUD : MonoBehaviour
 				FindButtonHintsByDisplayText(kvp.Value);
 			}
 		}
+		
+		// TODO: Add button hints for PullUp and DropDown
 		
 		// ! Debugging code
 		Debug.Log($"Current Traverser climbing state: {GameObject.Find("Agent").GetComponent<TraverserClimbingAbility>().GetState()}");  
