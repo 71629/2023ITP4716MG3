@@ -3,41 +3,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using Traverser;
 
 public class ActionHUD : MonoBehaviour
 { 
-	Animator anim;
-	void Start() // ! temporary
+	// * Functions used to detect key presses and find button hints by display text
+	private readonly Dictionary<Key, string> keyToDisplayText = new Dictionary<Key, string>
 	{
-		Time.timeScale = 0.3f;
-		anim.SetTrigger
+		{ Key.Q, "Q" },
+		{ Key.E, "E" },
+		{ Key.Space, "__" }
+	};
+
+	void Update()
+	{	
+		foreach (var kvp in keyToDisplayText)
+		{
+			if (Keyboard.current[kvp.Key].wasPressedThisFrame)
+			{
+				FindButtonHintsByDisplayText(kvp.Value);
+			}
+		}
 	}
+
+	void FindButtonHintsByDisplayText(string displayText)
+	{
+		ButtonHint[] buttonHints = GetComponentsInChildren<ButtonHint>();
+		foreach (ButtonHint buttonHint in buttonHints)
+		{
+			if (buttonHint.GetDisplayText() == displayText)
+			{
+				// Code to execute when a button hint with the same displayText is found
+				GetComponentInChildren<ButtonHint>().DisableButtonHint();
+			}
+		}
+	}
+	
+	// * Functions used to set up button hints
+	private readonly Dictionary<TraverserParkourObject.TraverserParkourType, (string, string)> buttonHintSetups = new Dictionary<TraverserParkourObject.TraverserParkourType, (string, string)>
+	{
+		{ TraverserParkourObject.TraverserParkourType.Ledge, ("__", "Vault") },
+		{ TraverserParkourObject.TraverserParkourType.Wall, ("Q", "Climb") },
+		{ TraverserParkourObject.TraverserParkourType.Table, ("__", "Vault") },
+		{ TraverserParkourObject.TraverserParkourType.Tunnel, ("__", "Slide") }
+	};
+
 	public void ButtonHintSetUp(TraverserParkourObject.TraverserParkourType parkourType)
 	{
-		
-		
-		// TODO: Refactor (Replace the switch statement) (line 13-30)
-		switch(parkourType)
+		if (buttonHintSetups.TryGetValue(parkourType, out var setup))
 		{
-			case TraverserParkourObject.TraverserParkourType.Ledge:
-				GetComponent<Transform>().GetChild(0).GetComponent<ButtonHint>().SetUp("__", "Vault");
-				break;
-				
-			case TraverserParkourObject.TraverserParkourType.Wall:
-				GetComponent<Transform>().GetChild(0).GetComponent<ButtonHint>().SetUp("Q", "Climb");
-				break;
-				
-			case TraverserParkourObject.TraverserParkourType.Table:
-				GetComponent<Transform>().GetChild(0).GetComponent<ButtonHint>().SetUp("__", "Vault");
-				break;
-				
-			case TraverserParkourObject.TraverserParkourType.Tunnel:
-				GetComponent<Transform>().GetChild(1).GetComponent<ButtonHint>().SetUp("__", "Slide");
-				break;
-			
-			default:
-				break;
+			GetComponent<Transform>().GetChild(0).GetComponent<ButtonHint>().SetUp(setup.Item1, setup.Item2);
+			GetComponent<Transform>().GetChild(0).GetComponent<ButtonHint>().EnableButtonHint();
 		}
 	}
 	
@@ -49,10 +66,5 @@ public class ActionHUD : MonoBehaviour
 	void DisableButtonHint(GameObject target)
 	{
 		target.GetComponent<ButtonHint>().DisableButtonHint();
-	}
-	
-	string SetButtonHintText(string text)
-	{
-		return "";
 	}
 }

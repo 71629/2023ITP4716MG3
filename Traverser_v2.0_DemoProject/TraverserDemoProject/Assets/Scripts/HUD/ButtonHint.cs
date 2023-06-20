@@ -26,7 +26,7 @@ public class ButtonHint : MonoBehaviour
 	
 	public void EnableButtonHint()
 	{
-		ButtonIcon.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+		ButtonIcon.GetComponent<Image>().color = new Color(0.4f, 0.4f, 0.4f, 1);
 		ButtonIcon.GetComponentInChildren<Text>().color = new Color(1, 1, 1, 1);
 		ActionDescription.color = new Color(1, 1, 1, 1);
 	}
@@ -36,5 +36,10 @@ public class ButtonHint : MonoBehaviour
 		ButtonIcon.GetComponent<Image>().color = new Color(1, 1, 1, 0);
 		ButtonIcon.GetComponentInChildren<Text>().color = new Color(1, 1, 1, 0);
 		ActionDescription.color = new Color(1, 1, 1, 0);
+	}
+	
+	public string GetDisplayText()
+	{
+		return ButtonIcon.GetComponentInChildren<Text>().text;
 	}
 }
