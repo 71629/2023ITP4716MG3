@@ -7,7 +7,7 @@ public class CreditsOnClick : MonoBehaviour
 {
     Animator anim;
     Animator pAnim, sAnim, cAnim, qAnim;
-
+    [SerializeField] AudioSource clickPlayButtonSound;
     Text Subtitle;
     private void Start()
     {
@@ -22,9 +22,10 @@ public class CreditsOnClick : MonoBehaviour
     }
     public void OnButtonDown()
     {
+        
         Debug.Log("Credits Button Clicked");
         anim.SetBool("IsExpanded", true);
-
+        clickPlayButtonSound.Play();
         pAnim.enabled = false;
         sAnim.enabled = false;
         cAnim.enabled = false;

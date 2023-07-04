@@ -15,6 +15,7 @@ public class SettingsOnClick : MonoBehaviour
 
     [SerializeField] GameObject Settings;
     [SerializeField] GameObject FirstCategory;
+    [SerializeField] AudioSource clickPlayButtonSound;
 
     private void Start()
     {
@@ -32,6 +33,7 @@ public class SettingsOnClick : MonoBehaviour
 
     public void OnButtonDown()
     {
+        clickPlayButtonSound.Play();
         Debug.Log("Settings Button Clicked");
         anim.SetBool("IsExpanded", true);
 
