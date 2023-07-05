@@ -23,6 +23,7 @@ public class ResultScreenManager : ScoreDisplay
     [SerializeField] TextMeshProUGUI BaseScoreText, AerobaticsText, TimeBonusText, ScoreMultiplierText, TotalScoreText;
     [SerializeField] GameObject NewRecordDisplay;
     [SerializeField] GameObject Enable, DisableTimer, DisableScoreDisplay, DisableVictoryScreen, DisableGameOverScreen, DisableButton1, DisableButton2,DisableButton3;
+    [SerializeField] GameObject BlackBox;
  
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class ResultScreenManager : ScoreDisplay
     {
         if(check5 == false)
         {
+            BlackBox.SetActive(true);
             DisableGameOverScreen.SetActive(false);
             DisableTimer.SetActive(false);
             DisableScoreDisplay.SetActive(false);
@@ -62,6 +64,9 @@ public class ResultScreenManager : ScoreDisplay
             //}
             
             
+            } else
+        {
+            BlackBox.SetActive(false);
         }
         
         TotalScore = (int)score;

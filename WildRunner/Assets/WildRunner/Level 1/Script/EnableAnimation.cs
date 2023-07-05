@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnableAnimation : MonoBehaviour
 {
     [SerializeField] GameObject Check5;
+    [SerializeField] GameObject ContinueButton;
+    [SerializeField] float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ContinueButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -16,6 +18,14 @@ public class EnableAnimation : MonoBehaviour
     {
         if(Check5 == null)
         {
+            if (timer <= 3)
+            {
+                timer += Time.deltaTime;
+            } else
+            {
+                ContinueButton.SetActive(true);
+            }
+            
             GetComponent<Animator>().enabled = true;
         }
     }
