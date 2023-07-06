@@ -66,10 +66,12 @@ namespace Traverser
 			// * Expected behaviour: Automatically detect the parkour object type and display the correct button hint
 			
 			ref Collider col = ref controller.current.collider;
-			TraverserParkourObject objRef = col.GetComponent<TraverserParkourObject>();
 			
-			GameObject.Find("ActionHUD").GetComponent<ActionHUD>().ButtonHintSetUp(objRef.type);
-			
+			if (col != null)
+			{
+				TraverserParkourObject objRef = col.GetComponent<TraverserParkourObject>();
+				GameObject.Find("ActionHUD").GetComponent<ActionHUD>().ButtonHintSetUp(objRef.type);
+			}
 			// ?
 
 			bool ret = false;
