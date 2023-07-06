@@ -1745,7 +1745,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 495.0396, y: -342.76004}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 50, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &424731294
 MonoBehaviour:
@@ -1767,7 +1767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b55199761909f36428be7582901935c4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ed2ee16a798d2447b9f66039da1d991, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -9357,8 +9357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1945042017}
-  Canvas: {fileID: 511585093}
   clickPlayButtonSound: {fileID: 557225949}
+  OnClick: 0
+  timer: 0
 --- !u!1 &1945119509
 GameObject:
   m_ObjectHideFlags: 0

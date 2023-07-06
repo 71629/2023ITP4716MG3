@@ -41,13 +41,8 @@ public class PassDisclaimer : MonoBehaviour
             }
             else
             {
-                ins.fontSize = 20;
-                ins.text = "Press any key to continue...";
+                anim.SetTrigger("Exit");
             }
-        }
-        if(Input.anyKeyDown && time <= 0)
-        {
-            anim.SetTrigger("Exit");
         }
     }
 
