@@ -12,7 +12,7 @@ public class PlayOnClick : MonoBehaviour
 
     public void OnButtonDown()
     {
-        clickPlayButtonSound.Play();
+        //clickPlayButtonSound.Play();
         anim.SetTrigger("Highlighted");
         Debug.Log("Play Button Clicked.");
         OnClick = true;
