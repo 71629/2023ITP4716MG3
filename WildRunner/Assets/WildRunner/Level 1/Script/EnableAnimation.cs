@@ -16,7 +16,7 @@ public class EnableAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Check5 != null)
+        if(Check5 == null)
         {
             if (timer <= 3)
             {

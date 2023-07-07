@@ -45,12 +45,7 @@ public class Lv2ResultScreen : MonoBehaviour
             DisableTimer.SetActive(false);
             DisableScoreDisplay.SetActive(false);
             DisableVictoryScreen.SetActive(false);
-            //DisableButton1.SetActive(false);
-            //DisableButton2.SetActive(false);
-            //DisableButton3.SetActive(false);
-            //delay += Time.deltaTime;
-            //if (delay >= 1)
-            //{
+            
             StartCoroutine(StartCounting());
             if (isLevelComplete)
             {

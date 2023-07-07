@@ -28,8 +28,9 @@ public class ResultScreenManager : ScoreDisplay
     // Start is called before the first frame update
     void Start()
     {
+        check5 = true;
         //PlayerPrefs.SetInt("Level1HighScore", 0);
-        
+        Canvas.speed = 0;
     }
 
     // Update is called once per frame
@@ -37,6 +38,7 @@ public class ResultScreenManager : ScoreDisplay
     {
         if(check5 == false)
         {
+            Canvas.speed = 1;
             BlackBox.SetActive(true);
             DisableGameOverScreen.SetActive(false);
             DisableTimer.SetActive(false);
@@ -45,11 +47,12 @@ public class ResultScreenManager : ScoreDisplay
             DisableButton1.SetActive(false);
             DisableButton2.SetActive(false);
             DisableButton3.SetActive(false);
+            Debug.Log("check5 false");
             //delay += Time.deltaTime;
             //if (delay >= 1)
             //{
             StartCoroutine(StartCounting());
-                if (isLevelComplete)
+                if (isLevelComplete && check5 == false)
                 {
                     Canvas.enabled = true;
                     Completion.text = "<color=#77ffff>S<color=#ccffff>tage</color> <color=#77ffff>C<color=#ccffff>lear</color>";
