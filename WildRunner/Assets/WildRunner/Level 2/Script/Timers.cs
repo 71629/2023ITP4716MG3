@@ -13,7 +13,7 @@ public class Timers : MonoBehaviour
 {
     [SerializeField] TMP_Text timerDisplay;
     public float timer = -3f;
-    public GameObject FinalPointNull, Victory;
+    public GameObject Failed, Victory, ControllerDisable;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,10 +23,14 @@ public class Timers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((FinalPointNull != null && Victory != null) || timer >= -3) //Check did player hit final point
+        if (Failed.active != true) //Check did player hit final point
         {
             timer += Time.deltaTime;
             timerDisplay.text = timer.ToString("f1");
+            
+        } else
+        {
+            Destroy(ControllerDisable);
         }
 
     }
