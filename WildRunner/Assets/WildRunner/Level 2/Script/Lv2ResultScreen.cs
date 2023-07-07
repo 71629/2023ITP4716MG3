@@ -27,24 +27,31 @@ public class Lv2ResultScreen : MonoBehaviour
     float TimeBonus;
     float score;
     bool check5, check4, check3, check2, check1;
-    GameObject Barrier4, Barrier3, Barrier2, Barrier1, Final;
+    [SerializeField]GameObject Barrier4, Barrier3, Barrier2, Barrier1, Final, AnotherBlackBox;
     // Start is called before the first frame update
     void Start()
     {
+        AnotherBlackBox.SetActive(false);
         //PlayerPrefs.SetInt("Level1HighScore", 0);
-
+        Canvas.speed = 0;
+        check5 = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Final == null)
+        {
+            check5 = false;
+        }
         if (check5 == false)
         {
+            Canvas.speed = 1;
             BlackBox.SetActive(true);
+            AnotherBlackBox.SetActive(true);
             DisableGameOverScreen.SetActive(false);
             DisableTimer.SetActive(false);
             DisableScoreDisplay.SetActive(false);
-            DisableVictoryScreen.SetActive(false);
             
             StartCoroutine(StartCounting());
             if (isLevelComplete)
@@ -69,27 +76,8 @@ public class Lv2ResultScreen : MonoBehaviour
         }
 
         TotalScore = (int)score;
-        if (Barrier1 == null && check1 == true)
-        {
-            score = score + 500;
-            check1 = false;
-        }
-        if (Barrier2 == null && check2 == true)
-        {
-            score = score + 500;
-            check2 = false;
-        }
-        if (Barrier3 == null && check3 == true)
-        {
-            score = score + 500;
-            check3 = false;
-        }
-        if (Barrier4 == null && check4 == true)
-        {
-            score = score + 500;
-            check4 = false;
-        }
-        if (Final == null && check5 == true)
+        
+        if (Final == null)
         {
             score = score + 1000;
             score = score * TimeBonus;
@@ -97,7 +85,6 @@ public class Lv2ResultScreen : MonoBehaviour
             ScoreMultiplier = 0;
             ScoreMultiplier = -timers - 1;
             check5 = false;
-
         }
         if (check5 == true)
         {
