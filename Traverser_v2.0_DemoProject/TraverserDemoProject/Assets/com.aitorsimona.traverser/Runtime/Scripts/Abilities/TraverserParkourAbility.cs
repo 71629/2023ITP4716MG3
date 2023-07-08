@@ -61,19 +61,6 @@ namespace Traverser
 
 		public bool OnContact(ref TraverserTransform contactTransform, float deltaTime)
 		{
-
-			// ? Show actionHUD here (Test required)
-			// * Expected behaviour: Automatically detect the parkour object type and display the correct button hint
-			
-			ref Collider col = ref controller.current.collider;
-			
-			if (col != null)
-			{
-				TraverserParkourObject objRef = col.GetComponent<TraverserParkourObject>();
-				GameObject.Find("ActionHUD").GetComponent<ActionHUD>().ButtonHintSetUp(objRef.type);
-			}
-			// ?
-
 			bool ret = false;
 
 			if (abilityController.inputController.GetInputButtonSouth() && !animationController.transition.isON)

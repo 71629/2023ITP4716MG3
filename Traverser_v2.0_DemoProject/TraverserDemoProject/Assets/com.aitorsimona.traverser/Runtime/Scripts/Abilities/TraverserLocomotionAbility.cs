@@ -193,48 +193,6 @@ namespace Traverser
             animationController = GetComponent<TraverserAnimationController>();
             leftFootIKTransform = TraverserTransform.Get(Vector3.zero, Quaternion.identity);
             rightFootIKTransform = TraverserTransform.Get(Vector3.zero, Quaternion.identity);
-
-            // Get the YPos of the player
-            float YPos = gameObject.transform.position.y;
-
-            // * Function to fix the landing bug
-            StartCoroutine(CompareYPos(YPos));
-        }
-
-        void Update()
-        {
-
-        }
-
-        IEnumerator<WaitForSecondsRealtime> CompareYPos(float YPos)
-        {
-            // * Executes every 100 ms realtime
-            yield return new WaitForSecondsRealtime(0.1f);
-
-            // ! Enable if debug is needed
-            // ? Get the system's opinion if the player is falling
-            // Debug.Log(GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("FallTransition"));
-
-            // * Check if the animation clip "Falling" is playing
-            if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("FallTransition"))
-            {
-                // * Checks if the current YPos is the same as the YPos 100ms earlier
-                if (YPos == gameObject.transform.position.y)
-                {
-                    // * Force the Animator to play the landing animation
-                    GetComponent<Animator>().SetTrigger("HardLandingTrigger");
-
-                    // ! Enable if debug is needed
-                    // ? Push a Log message when the function is attempting to fix the glitch
-                    // Debug.Log("Attempt Fix");
-                }
-            }
-
-            // * Update the YPos
-            YPos = gameObject.transform.position.y;
-
-            // * Self call
-            StartCoroutine(CompareYPos(YPos));
         }
 
         // -------------------------------------------------
@@ -387,10 +345,6 @@ namespace Traverser
                     // --- If we are not close to the desired angle or contact point, do not handle contacts ---
                     if (Mathf.Abs(angle) > contactAngleMax || Mathf.Abs(Vector3.Distance(contactTransform.t, tmp.t)) > contactDistanceMax)
                     {
-                        for (int q = 0; q < 5; q++)
-                        {
-                            // ! Disable actionHUD here
-                        }
                         continue;
                     }
 
