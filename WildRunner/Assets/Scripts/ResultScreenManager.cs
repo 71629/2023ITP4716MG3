@@ -116,20 +116,20 @@ public class ResultScreenManager : ScoreDisplay
 
             if (timers >= 60)
             {
-                TimeStore = 0.5f;
+                TimeStore = 1f;
             }
             else if (timers >= 55)
             {
-                TimeStore = 0.8f;
+                TimeStore = 1.3f;
 
             }
             else if (timers >= 50)
             {
-                TimeStore = 1f;
+                TimeStore = 1.5f;
             }
             else if (timers >= 48)
             {
-                TimeStore = 1.5f;
+                TimeStore = 1.7f;
             }
             else if (timers <= 45)
             {

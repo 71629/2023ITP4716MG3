@@ -103,24 +103,24 @@ public class Lv2ResultScreen : MonoBehaviour
         {
             timers += Time.deltaTime;
 
-            if (timers >= 60)
-            {
-                TimeStore = 0.5f;
-            }
-            else if (timers >= 55)
-            {
-                TimeStore = 0.8f;
-
-            }
-            else if (timers >= 50)
+            if (timers >= 520)
             {
                 TimeStore = 1f;
             }
-            else if (timers >= 48)
+            else if (timers >= 510)
+            {
+                TimeStore = 1.3f;
+
+            }
+            else if (timers >= 500)
             {
                 TimeStore = 1.5f;
             }
-            else if (timers <= 45)
+            else if (timers >= 490)
+            {
+                TimeStore = 1.7f;
+            }
+            else if (timers <= 480)
             {
                 TimeStore = 2f;
             }

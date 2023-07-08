@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class LevelEntrance : EnterLevel
 {
@@ -25,7 +26,6 @@ public class LevelEntrance : EnterLevel
 	// Update is called once per frame
 	void Update()
 	{
-		
 	}
 
 	public void SetLevelInfo(int LevelID, string LevelName, string LevelDescription, Sprite LevelJacket)
@@ -35,16 +35,18 @@ public class LevelEntrance : EnterLevel
 		this.LevelDescription = LevelDescription;
 		LevelNameGUI.text = LevelName;
 		LevelDescriptionGUI.text = LevelDescription;
-		this.LevelJacket = LevelJacket;
+		
 		if(LevelID == 1)
         {
 			this.LevelName = "Devil's Peak Battery";
 			this.LevelDescription = "A British Hong Kong military base.";
+			this.LevelJacket = LevelJacket;
 		}
 		if (LevelID == 2)
 		{
-			this.LevelName = "Mong Kok";
-			this.LevelDescription = "Mong Kok is an area in Kowloon, Hong Kong. The Prince Edward subarea occupies the northern part of Mong Kok.";
+			this.LevelName = "Dream City";
+			this.LevelDescription = "After running in wild, a dream in his brain has been out come";
+			this.LevelJacket = LevelJacket;
 		}
 	}
 

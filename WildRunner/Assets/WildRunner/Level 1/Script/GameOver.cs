@@ -7,6 +7,7 @@ public class GameOver : MonoBehaviour
     [SerializeField]
     public GameObject cama;
     public GameObject DestroyVictory;
+    public GameObject FailedResult;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class GameOver : MonoBehaviour
     {
         if (getYAxis() <= -1) //If some nice player make camera lower than sorry about that
         {
+            FailedResult.SetActive(true);
             Destroy(DestroyVictory); //GameOver
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
