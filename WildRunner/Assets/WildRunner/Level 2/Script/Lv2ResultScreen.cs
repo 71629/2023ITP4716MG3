@@ -29,17 +29,25 @@ public class Lv2ResultScreen : MonoBehaviour
     bool check5, check4, check3, check2, check1;
     [SerializeField]GameObject Barrier4, Barrier3, Barrier2, Barrier1, Final, AnotherBlackBox;
     // Start is called before the first frame update
+    [SerializeField] bool onceOnly = true, finalHitOne = true;
     void Start()
     {
         AnotherBlackBox.SetActive(false);
         //PlayerPrefs.SetInt("Level1HighScore", 0);
         Canvas.speed = 0;
         check5 = true;
+        ScoreMultiplier = 0;
+        onceOnly = true;
+        finalHitOne = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
+
         if(Final == null)
         {
             check5 = false;
@@ -77,13 +85,18 @@ public class Lv2ResultScreen : MonoBehaviour
 
         TotalScore = (int)score;
         
-        if (Final == null)
+        if (Final == null && finalHitOne == true)
         {
+            finalHitOne = false;
             score = score + 1000;
             score = score * TimeBonus;
             score = score - timers;
-            ScoreMultiplier = 0;
-            ScoreMultiplier = -timers - 1;
+            if(onceOnly == true)
+            {
+                ScoreMultiplier = -timers - 1;
+                onceOnly = false;
+            }
+            
             check5 = false;
         }
         if (check5 == true)
@@ -115,6 +128,7 @@ public class Lv2ResultScreen : MonoBehaviour
         BaseScore = 1000;
         Aerobatics = 2000;
         TotalScore = (int)score;
+        Debug.Log(score);
         TimeBonus = TimeStore;
     }
 

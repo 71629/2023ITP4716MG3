@@ -24,6 +24,7 @@ public class ResultScreenManager : ScoreDisplay
     [SerializeField] GameObject NewRecordDisplay;
     [SerializeField] GameObject Enable, DisableTimer, DisableScoreDisplay, DisableVictoryScreen, DisableGameOverScreen, DisableButton1, DisableButton2,DisableButton3;
     [SerializeField] GameObject BlackBox;
+    [SerializeField] bool onceOnly = true;
  
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,8 @@ public class ResultScreenManager : ScoreDisplay
         check5 = true;
         //PlayerPrefs.SetInt("Level1HighScore", 0);
         Canvas.speed = 0;
+        ScoreMultiplier = 0;
+        onceOnly = true;
     }
 
     // Update is called once per frame
@@ -98,8 +101,12 @@ public class ResultScreenManager : ScoreDisplay
             score = score + 1000;
             score = score * TimeBonus;
             score = score - timers;
-            ScoreMultiplier = 0;
-            ScoreMultiplier = -timers -1;
+            if(onceOnly == true)
+            {
+                ScoreMultiplier = -timers -1;
+                onceOnly = false;
+            }
+            
             check5 = false;
             
         }
