@@ -895,7 +895,8 @@ public class Lv2ResultScreen : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
 
-        tempScoreMultiplier += (int)Mathf.Ceil((Time.deltaTime * (int)ScoreMultiplier) / 1.2f);
+        tempScoreMultiplier = (int)ScoreMultiplier;
+        Debug.Log("Correction" + tempScoreMultiplier);
         ScoreMultiplierText.text = "<color=#aaaaaa>Score Correction</color>\n<size=125>" + tempScoreMultiplier + "</size>";
         if (tempScoreMultiplier >= (int)ScoreMultiplier)
         {
