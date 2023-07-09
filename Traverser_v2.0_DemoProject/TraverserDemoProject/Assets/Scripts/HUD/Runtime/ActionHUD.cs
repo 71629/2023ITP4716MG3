@@ -55,6 +55,8 @@ public class ActionHUD : MonoBehaviour
 	// * --- Update position and draw UI elements ---
 	void Update()
 	{	
+		Debug.Log(Agent.GetComponent<TraverserClimbingAbility>().GetState());
+		
 		// * --- HUD SZ Check ---
 		// ! HUD SZ >= 0.5f ==> Assertion Failure
 		Debug.Assert(HUDSafeZone < 0.5f, "HUD Safe Zone is higher than displayable limit. Value should always stay below 0.5f.");
@@ -68,7 +70,6 @@ public class ActionHUD : MonoBehaviour
 		
 		// * --- Manage Aim HUD visibility and function---
 		RaycastHit hit;
-		Debug.Log( Physics.Raycast(Agent.transform.position, Agent.transform.forward, out hit, 4, Agent.GetComponent<TraverserCharacterController>().characterCollisionMask, QueryTriggerInteraction.Ignore) );
 		AimHUDReference.transform.position = Agent.GetComponent<TraverserCharacterController>().contactTransform.t;
 		AimHUD.SetActive(Physics.Raycast(Agent.transform.position, Agent.transform.forward, out hit, 4, Agent.GetComponent<TraverserCharacterController>().characterCollisionMask, QueryTriggerInteraction.Ignore) && Agent.GetComponent<TraverserClimbingAbility>().GetState() == TraverserClimbingAbility.ClimbingState.Suspended);
 		if(Physics.Raycast(Agent.transform.position, Agent.transform.forward, out hit, 4, Agent.GetComponent<TraverserCharacterController>().characterCollisionMask, QueryTriggerInteraction.Ignore))
