@@ -9,6 +9,7 @@ public class FallGameOver : MonoBehaviour
     void Start()
     {
         GameOverScreen.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -20,6 +21,7 @@ public class FallGameOver : MonoBehaviour
     {
         if (col.tag == "Player")
         {
+            Cursor.visible = true;
             HiddenCamera.SetActive(true);
             GameOverScreen.SetActive(true);
             Debug.Log("GameOver");

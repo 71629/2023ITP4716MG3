@@ -58,7 +58,7 @@ public class LevelEntrance : EnterLevel
 	public void Destroy()
 	{
 		Destroy(GameObject.Find("LevelEntrance(Clone)"));
-		Destroy(GameObject.Find("LevelEntrance2(Clone)"));
+		Destroy(GameObject.Find("LevelEntrance - ½Æ»s(Clone)"));
 	}
 	
 	public void StartLevel()
